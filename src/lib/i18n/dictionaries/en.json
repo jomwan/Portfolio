@@ -46,6 +46,10 @@
     "deepDive": "Deep Dive",
     "items": [
       {
+        "title": "AuraVision: Advanced Assistive Vision System (SmartAV)",
+        "desc": "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory."
+      },
+      {
         "title": "golf-bookr: Schema & Reservation Engine",
         "desc": "An interactive reservation platform designed with a highly optimized database schema, managing real-time booking availability, relational user associations, and robust transaction concurrency."
       },

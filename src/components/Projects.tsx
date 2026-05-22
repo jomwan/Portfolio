@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Globe, Database, Cpu, TrendingUp, BarChart3, ArrowRight, ShieldCheck } from "lucide-react";
+import { ExternalLink, Globe, Database, Cpu, TrendingUp, BarChart3, ArrowRight, ShieldCheck, Eye } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
-import ProjectModal from "./ProjectModal";
+import Link from "next/link";
 import type { Project } from "@/lib/types";
 
 const getIconUrl = (slug: string) => {
@@ -21,7 +21,39 @@ const getIconUrl = (slug: string) => {
   }
 };
 
-const projects: Project[] = [
+export const projects: Project[] = [
+  {
+    id: "auravision",
+    title: "AuraVision: Advanced Assistive Vision System (SmartAV)",
+    desc: "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory.",
+    tech: ["FastAPI", "Gemini 3 Flash", "LlamaIndex", "ChromaDB", "Computer Vision", "Real-time Processing"],
+    icons: ["py", "fastapi", "huggingface", "git"],
+    live: "/projects/auravision/demo",
+    github: "https://github.com/TayZa9/SmartAV",
+    image: "/projects/auravision_preview.png",
+    metric: "Spatial AI Engine",
+    metrics: [
+      { label: "Spatial Awareness", value: "98.4% Acc." },
+      { label: "RAG Recall Speed", value: "<150ms" },
+      { label: "Neural Model", value: "YOLOE + FaceNet" },
+      { label: "Memory Retention", value: "Temporal Vector" }
+    ],
+    icon: <Eye size={20} />,
+    featured: true,
+    tags: ["Computer Vision", "RAG & LLMs", "Assistive AI"],
+    architecture: [
+      {
+        title: "Environmental Perception Engine",
+        desc: "Performs low-latency object detection, segmentation, and face recognition via optimized local models to track spatial hazards and landmarks.",
+        type: "model"
+      },
+      {
+        title: "Temporal-Spatial Memory (RAG)",
+        desc: "Constructs a vector space representing the user's historical movements and observed surroundings, queried via LlamaIndex RAG over ChromaDB.",
+        type: "pipeline"
+      }
+    ]
+  },
   {
     id: "golf",
     title: "golf-bookr: Schema & Reservation Engine",
@@ -154,7 +186,6 @@ const projects: Project[] = [
 
 export default function Projects() {
   const { t } = useLanguage();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projectItems = projects.map((proj, i) => ({
     ...proj,
@@ -198,17 +229,18 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projectItems.map((project, i) => (
-            <motion.div
+            <Link
+              href={`/projects/${project.id}`}
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              onClick={() => setSelectedProject(project)}
-              className={`group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer ${
-                project.featured ? "md:col-span-2" : ""
-              }`}
+              className={`block ${project.featured ? "md:col-span-2" : ""}`}
             >
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full"
+              >
               {/* Image Section */}
               <div className={`relative overflow-hidden ${project.featured ? "h-80 md:h-[450px]" : "h-64"}`}>
                 <Image 
@@ -279,16 +311,11 @@ export default function Projects() {
 
               {/* Liquid Highlight Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-1000 -z-10" />
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
-
-      <ProjectModal
-        isOpen={!!selectedProject}
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
 
       {/* Background Decorative Elements */}
       <div className="absolute top-1/4 -right-64 w-128 h-128 bg-primary/5 rounded-full blur-[120px] -z-10" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
-import { motion, useSpring, useMotionValue, useVelocity, useTransform } from "framer-motion";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
   const [mounted, setMounted] = useState(false);
@@ -9,33 +9,19 @@ export default function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  // Use ref for angle to avoid re-renders on every mouse move
-  const angleRef = useRef(0);
-
   // Track which elements already have listeners to prevent duplicates
   const trackedElements = useRef(new WeakSet<Element>());
 
   // Store listener refs for cleanup
   const listenersRef = useRef<{ el: Element; enter: () => void; leave: () => void }[]>([]);
 
-  // Position values
+  // Position values (raw mouse coordinates)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for different layers
-  const mainX = useSpring(mouseX, { damping: 20, stiffness: 300 });
-  const mainY = useSpring(mouseY, { damping: 20, stiffness: 300 });
-  
-  const outerX = useSpring(mouseX, { damping: 30, stiffness: 150 });
-  const outerY = useSpring(mouseY, { damping: 30, stiffness: 150 });
-
-  // Spring for the trailing particle
-  const trailX = useSpring(mouseX, { damping: 40, stiffness: 100 });
-  const trailY = useSpring(mouseY, { damping: 40, stiffness: 100 });
-
-  // Velocity for "liquid" stretch effect
-  const velX = useVelocity(mouseX);
-  const velY = useVelocity(mouseY);
+  // Smooth springs for only the outer tracking ring to minimize layout calculations
+  const outerX = useSpring(mouseX, { damping: 30, stiffness: 220 });
+  const outerY = useSpring(mouseY, { damping: 30, stiffness: 220 });
 
   const handleHover = useCallback(() => setIsHovering(true), []);
   const handleUnhover = useCallback(() => setIsHovering(false), []);
@@ -52,13 +38,6 @@ export default function CustomCursor() {
     
     const moveCursor = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      
-      const dx = clientX - mouseX.get();
-      const dy = clientY - mouseY.get();
-      if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
-        angleRef.current = Math.atan2(dy, dx) * (180 / Math.PI);
-      }
-
       mouseX.set(clientX);
       mouseY.set(clientY);
     };
@@ -70,7 +49,7 @@ export default function CustomCursor() {
     window.addEventListener("mousedown", mouseDown);
     window.addEventListener("mouseup", mouseUp);
 
-    // Attach hover listeners only to new elements (WeakSet prevents duplicates)
+    // Attach hover listeners only to new elements
     const updateInteractables = () => {
       const interactables = document.querySelectorAll("a, button, .group, input, textarea");
       interactables.forEach((el) => {
@@ -102,7 +81,7 @@ export default function CustomCursor() {
       observer.disconnect();
       clearTimeout(debounceTimer);
 
-      // Clean up all tracked event listeners
+      // Clean up tracked event listeners
       listenersRef.current.forEach(({ el, enter, leave }) => {
         el.removeEventListener("mouseenter", enter);
         el.removeEventListener("mouseleave", leave);
@@ -112,70 +91,31 @@ export default function CustomCursor() {
     };
   }, [mouseX, mouseY, handleHover, handleUnhover]);
 
-  // Derived transforms for the "liquid" stretch
-  const speed = useTransform([velX, velY], ([latestVelX, latestVelY]) => {
-    const s = Math.sqrt(Number(latestVelX) ** 2 + Number(latestVelY) ** 2);
-    return Math.min(s / 1000, 0.8);
-  });
-
-  const stretch = useTransform(speed, [0, 0.8], [1, 1.8]);
-  const squeeze = useTransform(speed, [0, 0.8], [1, 0.6]);
-
   if (!mounted || isTouchDevice) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
-      {/* 1. Large Ambient Glow (Slowest) */}
+      {/* 1. Outer Tracking Ring (Delayed Smooth Spring, no blur repaints) */}
       <motion.div
-        className="absolute w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]"
+        className="absolute w-10 h-10 border border-primary/30 rounded-full flex items-center justify-center backdrop-blur-[1px]"
         style={{
           x: outerX,
           y: outerY,
           translateX: "-50%",
           translateY: "-50%",
+          scale: isHovering ? 1.6 : isClicking ? 0.8 : 1,
         }}
       />
 
-      {/* 2. Outer Liquid Ring (Medium delay) */}
+      {/* 2. Core Dot (Instant Mouse Follow, extremely cheap) */}
       <motion.div
-        className="absolute w-12 h-12 border border-primary/30 rounded-full flex items-center justify-center backdrop-blur-[2px]"
+        className="absolute w-3 h-3 bg-primary rounded-full mix-blend-difference"
         style={{
-          x: outerX,
-          y: outerY,
+          x: mouseX,
+          y: mouseY,
           translateX: "-50%",
           translateY: "-50%",
-          scale: isHovering ? 2 : isClicking ? 0.8 : 1,
-          rotate: angleRef.current,
-          scaleX: stretch,
-          scaleY: squeeze,
-        }}
-      >
-        <div className="w-1 h-1 bg-primary/40 rounded-full" />
-      </motion.div>
-
-      {/* 3. Core Liquid Drop (Fastest) */}
-      <motion.div
-        className="absolute w-4 h-4 bg-primary rounded-full mix-blend-difference"
-        style={{
-          x: mainX,
-          y: mainY,
-          translateX: "-50%",
-          translateY: "-50%",
-          scale: isClicking ? 0.5 : 1,
-          rotate: angleRef.current,
-          scaleX: stretch,
-          scaleY: squeeze,
-        }}
-      />
-
-      {/* 4. Trailing Particle */}
-      <motion.div
-        className="absolute w-1 h-1 bg-primary/20 rounded-full"
-        style={{
-          x: trailX,
-          y: trailY,
-          translateX: "-50%",
-          translateY: "-50%",
+          scale: isClicking ? 0.6 : 1,
         }}
       />
     </div>

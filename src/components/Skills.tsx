@@ -27,6 +27,17 @@ const skillsRow2 = [
   { name: "Markdown", icon: "https://skillicons.dev/icons?i=markdown" },
 ];
 
+const skillsRow3 = [
+  { name: "Scikit-Learn", icon: "https://cdn.simpleicons.org/scikitlearn/F99923" },
+  { name: "Apache Hadoop", icon: "https://cdn.simpleicons.org/apachehadoop/CC8A00" },
+  { name: "Streamlit", icon: "https://cdn.simpleicons.org/streamlit/FF4B4B" },
+  { name: "Solara", icon: "https://api.iconify.design/lucide:sun.svg?color=%23FFB800" },
+  { name: "Apache Spark", icon: "https://cdn.simpleicons.org/apachespark/E25A1C" },
+  { name: "NetworkX", icon: "https://api.iconify.design/lucide:network.svg?color=%2342A5F5" },
+  { name: "FastAPI", icon: "https://cdn.simpleicons.org/fastapi/009688" },
+  { name: "Jupyter", icon: "https://cdn.simpleicons.org/jupyter/F37626" },
+];
+
 const MarqueeRow = ({ items, direction = 1 }: { items: typeof skillsRow1, direction?: number }) => {
   return (
     <div className="flex overflow-hidden py-4 select-none">
@@ -72,7 +83,7 @@ export default function Skills() {
       title: t.skills.cards[0]?.label || "Data Engineering & Analytics",
       desc: t.skills.cards[0]?.desc || "Designing data pipelines, processing datasets, and modeling analytical databases.",
       icon: BarChart3,
-      skills: ["Apache Spark", "SQL", "Pandas", "ETL Pipelines", "Python"],
+      skills: ["Apache Spark", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI"],
       color: "text-purple-400",
       bg: "bg-purple-500/5",
       span: "md:col-span-2 md:row-span-2",
@@ -90,7 +101,7 @@ export default function Skills() {
       title: t.skills.cards[2]?.label || "Databases & Storage",
       desc: t.skills.cards[2]?.desc || "Robust relational databases and distributed storage solutions.",
       icon: Database,
-      skills: ["MySQL", "SQLite", "Hadoop/HDFS", "Firebase"],
+      skills: ["MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "Firebase"],
       color: "text-emerald-400",
       bg: "bg-emerald-500/5",
       span: "md:col-span-1",
@@ -99,7 +110,7 @@ export default function Skills() {
       title: t.skills.cards[3]?.label || "Simulation & ML",
       desc: t.skills.cards[3]?.desc || "Complex data modeling, analysis, and network simulations.",
       icon: BrainCircuit,
-      skills: ["Agent Modeling", "Pandas", "ML Pipelines", "NetworkX"],
+      skills: ["Agent Modeling", "LlamaIndex (RAG)", "YOLOE / CV", "ML Pipelines", "NetworkX"],
       color: "text-amber-400",
       bg: "bg-amber-500/5",
       span: "md:col-span-1",
@@ -182,6 +193,7 @@ export default function Skills() {
 
           <MarqueeRow items={skillsRow1} direction={1} />
           <MarqueeRow items={skillsRow2} direction={-1} />
+          <MarqueeRow items={skillsRow3} direction={1} />
         </div>
       </div>
     </section>
