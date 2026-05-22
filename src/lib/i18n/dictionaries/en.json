@@ -2,15 +2,15 @@
   "hero": {
     "hello": "Hello, I'm",
     "available": "Available for Internship & Opportunities",
-    "description": "Information and Communication Technology (ICT) major at Rangsit University International College. Passionate about building elegant full-stack web applications, interactive data systems, and smart simulation algorithms.",
+    "description": "Information and Communication Technology (ICT) major at Rangsit University International College. Passionate about designing robust database schemas, building scalable data pipelines, and implementing advanced analytical simulations.",
     "explore": "Explore My Work",
     "talk": "Let's Talk",
     "scroll": "Scroll",
     "interests": [
-      "Web Development",
-      "Software Engineering",
+      "Data Engineering",
+      "Database Design",
       "Agent-Based Modeling",
-      "Full-Stack Dev",
+      "Data Specialist",
       "Data Analytics",
       "Distributed Concepts"
     ]
@@ -25,51 +25,51 @@
   },
   "about": {
     "section": "01 — Biography",
-    "title": "I build software that bridges <span class=\"gradient-text\">ideas</span> and systems.",
-    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand. I specialize in Software Engineering, Web Development, and Data Analytics, with a strong foundation in building interactive web platforms, distributed file system concepts, and data simulations. I am currently seeking an internship to apply my skills and collaborate on real-world engineering challenges.",
-    "desc2": "My academic projects, such as building booking systems and modeling viral network dynamics, have shaped my technical approach: combining structured engineering principles with modern front-end and back-end ecosystems.",
+    "title": "I design architectures that bridge <span class=\"gradient-text\">data</span> and decisions.",
+    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand. I specialize in Database Design, Data Engineering, and Data Analytics, with a strong foundation in building interactive analytical interfaces, distributed storage systems, and advanced data simulations. I am currently seeking an internship to apply my data expertise to real-world engineering challenges.",
+    "desc2": "My academic projects—ranging from designing optimized relational database models to simulating complex viral agent interactions—have shaped my technical philosophy: turning raw data into structured pipelines and actionable insights.",
     "quote": "\"Simplicity is the soul of efficiency.\"",
     "currentFocus": "Current Focus",
-    "focusDesc": "Building interactive systems & full-stack web platforms.",
-    "focusPills": ["Full-Stack Dev", "Software Engineering", "Simulations", "Databases"],
+    "focusDesc": "Designing robust database architectures & scalable data pipelines.",
+    "focusPills": ["Database Design", "Data Analytics", "Simulations", "Data Pipelines"],
     "stats": {
-      "projects": "Academic Projects",
+      "projects": "Data Projects",
       "models": "Simulation Models",
-      "accuracy": "Development Quality",
-      "security": "Continuous Learning"
+      "accuracy": "Model Accuracy",
+      "security": "Data Integrity"
     }
   },
   "projects": {
     "section": "02 — Portfolio",
     "title": "Selected <span class=\"gradient-text\">Projects</span>",
-    "subtitle": "Academic and open-source applications built with modern frontend and backend tech stacks.",
+    "subtitle": "Academic and open-source applications focused on data structures, database design, and modeling simulations.",
     "deepDive": "Deep Dive",
     "items": [
       {
-        "title": "golf-bookr: Reservation Platform",
-        "desc": "A complete interactive golf course booking and scheduling system built with JavaScript, allowing real-time slot management, user registration, and smooth reservation flows."
+        "title": "golf-bookr: Schema & Reservation Engine",
+        "desc": "An interactive reservation platform designed with a highly optimized database schema, managing real-time booking availability, relational user associations, and robust transaction concurrency."
       },
       {
-        "title": "TikTok ABM: Dynamics Simulation",
+        "title": "TikTok ABM: Agent-Based Data Simulator",
         "desc": "A simulation framework built in Python to model and analyze user interactions, content recommendation algorithms, and viral network dynamics on the TikTok platform."
       },
       {
-        "title": "HDFS: Distributed File Visualizer",
-        "desc": "An interactive web framework integration designed to visualize, manage, and interact with HDFS components, simulating distributed data operations."
+        "title": "HDFS: Distributed Storage Explorer",
+        "desc": "An analytical visualizer designed to simulate distributed storage filesystems, modeling chunk replication, NameNode operations, and distributed data pipelines."
       },
       {
-        "title": "Fraud-Detection: Anomaly Classifier",
-        "desc": "A machine learning pipeline built with Python to detect anomalies and identify fraudulent financial transactions with high precision."
+        "title": "Fraud-Detection: Transaction Anomaly Classifier",
+        "desc": "A machine learning data pipeline designed to preprocess large financial datasets, perform feature engineering, and classify fraudulent transactions using ensemble anomaly detection models."
       }
     ]
   },
   "skills": {
     "section": "03 — Tech Spectrum",
     "title": "Technical <span class=\"gradient-text italic\">Toolkit</span>",
-    "subtitle": "Crafting scalable, modern, and highly interactive applications with standard development stacks.",
+    "subtitle": "Designing, scaling, and querying complex data architectures with robust analytical toolkits.",
     "cards": [
-      { "label": "Full-Stack Web", "desc": "Modern and interactive front-end and back-end ecosystems.", "value": "React, Next.js, Node.js, TailwindCSS" },
-      { "label": "Languages", "desc": "Proficient across standard application development languages.", "value": "JavaScript, TypeScript, Python, HTML/CSS" },
+      { "label": "Data Engineering & Analytics", "desc": "Designing pipelines, processing workflows, and modeling analytical datasets.", "value": "Python, SQL, Pandas, Apache Spark, HDFS" },
+      { "label": "Languages & Frameworks", "desc": "Proficient in languages and tools for data science and web interfaces.", "value": "Python, SQL, JavaScript, TypeScript, HTML/CSS" },
       { "label": "Databases & Storage", "desc": "Robust relational databases and distributed storage solutions.", "value": "MySQL, SQLite, Hadoop/HDFS, Firebase" },
       { "label": "Simulation & ML", "desc": "Complex data modeling, analysis, and network simulations.", "value": "Agent-Based Modeling, Pandas, ML Pipelines" }
     ]

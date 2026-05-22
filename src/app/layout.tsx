@@ -18,13 +18,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Jom | Portfolio — Full-Stack Developer & ICT Student",
+  title: "Jom | Portfolio — Data Engineer & Analyst",
   description:
-    "Portfolio of Sai Swam Wan Hline (Jom) — ICT student at Rangsit University specializing in full-stack web development, data analytics, and simulation algorithms.",
+    "Portfolio of Sai Swam Wan Hline (Jom) — ICT student at Rangsit University specializing in data engineering, database design, and simulation algorithms.",
   keywords: [
     "portfolio",
-    "full-stack developer",
-    "web developer",
+    "data engineer",
+    "data analyst",
+    "database design",
     "ICT student",
     "React",
     "Next.js",
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Sai Swam Wan Hline" }],
   openGraph: {
     type: "website",
-    title: "Jom | Portfolio — Full-Stack Developer & ICT Student",
+    title: "Jom | Portfolio — Data Engineer & Analyst",
     description:
-      "Full-stack web applications, data systems, and simulation algorithms — built by Jom.",
+      "Relational databases, data engineering pipelines, and simulation algorithms — built by Jom.",
     siteName: "Jom Portfolio",
     locale: "en_US",
   },
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jom | Portfolio",
     description:
-      "Full-stack web applications, data systems, and simulation algorithms — built by Jom.",
+      "Relational databases, data engineering pipelines, and simulation algorithms — built by Jom.",
   },
   robots: {
     index: true,

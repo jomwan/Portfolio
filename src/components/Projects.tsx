@@ -21,30 +21,42 @@ const getIconUrl = (slug: string) => {
   }
 };
 
-const projects = [
+const projects: Project[] = [
   {
     id: "golf",
-    title: "golf-bookr: Reservation Platform",
-    desc: "A complete interactive golf course booking and scheduling system built with JavaScript, allowing real-time slot management, user registration, and smooth reservation flows.",
-    tech: ["JavaScript", "HTML5", "CSS3", "Git"],
-    icons: ["js", "html", "css", "git"],
+    title: "golf-bookr: Schema & Reservation Engine",
+    desc: "An interactive reservation platform designed with a highly optimized database schema, managing real-time booking availability, relational user associations, and robust transaction concurrency.",
+    tech: ["Relational DB", "SQL / State Management", "JavaScript", "Data Integrity"],
+    icons: ["mysql", "sqlite", "js", "git"],
     live: "https://github.com/jomwan/golf-bookr",
     github: "https://github.com/jomwan/golf-bookr",
-    image: "/projects/predictive.png",
-    metric: "Real-Time Scheduling",
+    image: "/projects/golf_preview.png",
+    metric: "Relational Schema",
     metrics: [
-      { label: "Language", value: "JavaScript" },
-      { label: "Scope", value: "Full System" },
-      { label: "Interactivity", value: "High" },
-      { label: "Features", value: "Reservation Flow" }
+      { label: "Database Design", value: "Relational" },
+      { label: "Concurrency Control", value: "Transaction-safe" },
+      { label: "Search Optimization", value: "Indexed Querying" },
+      { label: "State Synchronization", value: "Real-time" }
     ],
-    icon: <TrendingUp size={20} />,
+    icon: <Database size={20} />,
     featured: true,
-    tags: ["Web App", "Front-End"],
+    tags: ["Database Design", "Data Systems"],
+    architecture: [
+      {
+        title: "Relational Database Schema",
+        desc: "Designed structured tables with primary/foreign key relationships and appropriate constraints to model course inventory, users, and bookings.",
+        type: "database"
+      },
+      {
+        title: "Transaction Concurrency",
+        desc: "Implemented atomic slot validation logic to prevent race conditions and dual-bookings during high-traffic booking windows.",
+        type: "pipeline"
+      }
+    ]
   },
   {
     id: "tiktok",
-    title: "TikTok ABM: Dynamics Simulation",
+    title: "TikTok ABM: Agent-Based Data Simulator",
     desc: "A simulation framework built in Python to model and analyze user interactions, content recommendation algorithms, and viral network dynamics on the TikTok platform.",
     tech: ["Python", "Pandas", "NetworkX", "Matplotlib"],
     icons: ["py", "pandas", "matplotlib"],
@@ -53,54 +65,90 @@ const projects = [
     image: "/projects/llm.png",
     metric: "Network ABM Modeling",
     metrics: [
-      { label: "Analysis Engine", value: "Agent-Based" },
-      { label: "Data Structure", value: "Graph Theory" },
-      { label: "Core Libraries", value: "NetworkX, Pandas" },
-      { label: "Complexity", value: "O(V + E)" }
+      { label: "Modeling Paradigm", value: "Agent-Based" },
+      { label: "Data Structure", value: "Network Graph" },
+      { label: "Data Pipeline", value: "Pandas" },
+      { label: "Simulation Speed", value: "Optimized" }
     ],
     icon: <Cpu size={20} />,
     featured: false,
-    tags: ["Simulation", "Python"],
+    tags: ["Data Modeling", "Simulation"],
+    architecture: [
+      {
+        title: "Agent-Based Engine",
+        desc: "Constructed dynamic behavioral state machines for individual user agents to simulate content consumption and sharing patterns.",
+        type: "model"
+      },
+      {
+        title: "Network Graph Analysis",
+        desc: "Analyzed network clustering, information cascades, and virality thresholds using directed graph structures in NetworkX.",
+        type: "analytics"
+      }
+    ]
   },
   {
     id: "hdfs",
-    title: "HDFS: Distributed File Visualizer",
+    title: "HDFS: Distributed Storage Explorer",
     desc: "An interactive web framework integration designed to visualize, manage, and interact with HDFS components, simulating distributed data operations.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Hadoop Concepts"],
+    tech: ["Distributed Systems", "JSON Replication", "JavaScript", "Storage Simulation"],
     icons: ["html", "css", "js"],
     live: "https://github.com/jomwan/HDFS",
     github: "https://github.com/jomwan/HDFS",
     image: "/projects/etl.png",
-    metric: "Distributed UI Hub",
+    metric: "Distributed Storage Hub",
     metrics: [
-      { label: "Technology Stack", value: "HTML/CSS/JS" },
-      { label: "Protocol", value: "HDFS Web UI" },
-      { label: "Management", value: "Interactive" },
-      { label: "Simulation", value: "Web Nodes" }
+      { label: "Storage Architecture", value: "Distributed" },
+      { label: "Simulation State", value: "Multi-Node" },
+      { label: "Replication Factor", value: "3x Simulated" },
+      { label: "Data Visualizer", value: "Real-time Node" }
     ],
     icon: <Database size={20} />,
     featured: false,
-    tags: ["Distributed Systems", "Frontend"],
+    tags: ["Data Engineering", "Distributed Systems"],
+    architecture: [
+      {
+        title: "Distributed Replication Model",
+        desc: "Simulated HDFS chunk division, block replication across multiple DataNodes, and automatic failover handling mechanisms.",
+        type: "storage"
+      },
+      {
+        title: "Analytical Operations Panel",
+        desc: "Created a visual simulation mapping client read/write operations to Active/Standby NameNodes and corresponding DataNode maps.",
+        type: "database"
+      }
+    ]
   },
   {
     id: "fraud",
-    title: "Fraud-Detection: Anomaly Classifier",
+    title: "Fraud-Detection: Transaction Anomaly Classifier",
     desc: "A machine learning pipeline built with Python to detect anomalies and identify fraudulent financial transactions with high precision.",
-    tech: ["Python", "Scikit-Learn", "Pandas", "Jupyter"],
+    tech: ["Python", "Scikit-Learn", "Pandas", "Feature Engineering"],
     icons: ["py", "sklearn", "pandas"],
     live: "https://github.com/jomwan/Fraud-Detection",
     github: "https://github.com/jomwan/Fraud-Detection",
     image: "/projects/fraud.png",
     metric: "High-Precision Pipeline",
     metrics: [
-      { label: "Evaluation Metric", value: "Precision/Recall" },
-      { label: "Analysis Environment", value: "Jupyter" },
-      { label: "Toolkit", value: "Scikit-Learn" },
-      { label: "Core Model", value: "Anomaly Forest" }
+      { label: "Target Metric", value: "F1-Score / Precision" },
+      { label: "Data Pipeline", value: "Feature Scaled" },
+      { label: "Classification", value: "Supervised ML" },
+      { label: "Model Type", value: "Anomaly Ensemble" }
     ],
     icon: <ShieldCheck size={20} />,
     featured: false,
     tags: ["Machine Learning", "Data Science"],
+    architecture: [
+      {
+        title: "ML Training Pipeline",
+        desc: "Constructed complete data pipelines from raw financial ingestion to feature engineering, SMOTE oversampling, and scaling.",
+        type: "pipeline"
+      },
+      {
+        title: "Anomaly Ensemble",
+        desc: "Developed and tuned Isolation Forest and Random Forest classifiers to maximize precision and recall under extreme class imbalance.",
+        type: "model"
+      }
+    ]
   },
 ];
 

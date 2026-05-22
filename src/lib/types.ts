@@ -5,6 +5,12 @@ export interface ProjectMetric {
   value: string;
 }
 
+export interface ProjectArchitecture {
+  title: string;
+  desc: string;
+  type: "data" | "model" | "storage" | "pipeline" | "database" | "analytics" | "system";
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -19,6 +25,7 @@ export interface Project {
   icon: ReactNode;
   featured: boolean;
   tags: string[];
+  architecture?: ProjectArchitecture[];
 }
 
 export interface EducationLink {
