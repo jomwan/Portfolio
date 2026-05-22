@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "hello": "Hello, I'm",
+    "available": "Available for Internship & Opportunities",
+    "description": "Information and Communication Technology (ICT) major at Rangsit University International College. Passionate about building elegant full-stack web applications, interactive data systems, and smart simulation algorithms.",
+    "explore": "Explore My Work",
+    "talk": "Let's Talk",
+    "scroll": "Scroll",
+    "interests": [
+      "Web Development",
+      "Software Engineering",
+      "Agent-Based Modeling",
+      "Full-Stack Dev",
+      "Data Analytics",
+      "Distributed Concepts"
+    ]
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "educations": "Educations",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "about": {
+    "section": "01 — Biography",
+    "title": "I build software that bridges <span class=\"gradient-text\">ideas</span> and systems.",
+    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand. I specialize in Software Engineering, Web Development, and Data Analytics, with a strong foundation in building interactive web platforms, distributed file system concepts, and data simulations. I am currently seeking an internship to apply my skills and collaborate on real-world engineering challenges.",
+    "desc2": "My academic projects, such as building booking systems and modeling viral network dynamics, have shaped my technical approach: combining structured engineering principles with modern front-end and back-end ecosystems.",
+    "quote": "\"Simplicity is the soul of efficiency.\"",
+    "currentFocus": "Current Focus",
+    "focusDesc": "Building interactive systems & full-stack web platforms.",
+    "focusPills": ["Full-Stack Dev", "Software Engineering", "Simulations", "Databases"],
+    "stats": {
+      "projects": "Academic Projects",
+      "models": "Simulation Models",
+      "accuracy": "Development Quality",
+      "security": "Continuous Learning"
+    }
+  },
+  "projects": {
+    "section": "02 — Portfolio",
+    "title": "Selected <span class=\"gradient-text\">Projects</span>",
+    "subtitle": "Academic and open-source applications built with modern frontend and backend tech stacks.",
+    "deepDive": "Deep Dive",
+    "items": [
+      {
+        "title": "golf-bookr: Reservation Platform",
+        "desc": "A complete interactive golf course booking and scheduling system built with JavaScript, allowing real-time slot management, user registration, and smooth reservation flows."
+      },
+      {
+        "title": "TikTok ABM: Dynamics Simulation",
+        "desc": "A simulation framework built in Python to model and analyze user interactions, content recommendation algorithms, and viral network dynamics on the TikTok platform."
+      },
+      {
+        "title": "HDFS: Distributed File Visualizer",
+        "desc": "An interactive web framework integration designed to visualize, manage, and interact with HDFS components, simulating distributed data operations."
+      },
+      {
+        "title": "Fraud-Detection: Anomaly Classifier",
+        "desc": "A machine learning pipeline built with Python to detect anomalies and identify fraudulent financial transactions with high precision."
+      }
+    ]
+  },
+  "skills": {
+    "section": "03 — Tech Spectrum",
+    "title": "Technical <span class=\"gradient-text italic\">Toolkit</span>",
+    "subtitle": "Crafting scalable, modern, and highly interactive applications with standard development stacks.",
+    "cards": [
+      { "label": "Full-Stack Web", "desc": "Modern and interactive front-end and back-end ecosystems.", "value": "React, Next.js, Node.js, TailwindCSS" },
+      { "label": "Languages", "desc": "Proficient across standard application development languages.", "value": "JavaScript, TypeScript, Python, HTML/CSS" },
+      { "label": "Databases & Storage", "desc": "Robust relational databases and distributed storage solutions.", "value": "MySQL, SQLite, Hadoop/HDFS, Firebase" },
+      { "label": "Simulation & ML", "desc": "Complex data modeling, analysis, and network simulations.", "value": "Agent-Based Modeling, Pandas, ML Pipelines" }
+    ]
+  },
+  "educations": {
+    "section": "04 — Journey",
+    "title": "My <span class=\"gradient-text\">Education</span>",
+    "items": [
+      {
+        "degree": "Bachelor in Information and Communication Technology",
+        "school": "Rangsit University International College",
+        "location": "Pathum Thani, Thailand",
+        "period": "2023 — Present",
+        "desc": "Pursuing a major in Information and Communication Technology (ICT) under the International College. Coursework covers Web Systems Programming, Software Engineering, Database Systems, and Network Administration."
+      },
+      {
+        "degree": "Certified Data Specialist",
+        "school": "Cisco Networking Academy (NetAcad)",
+        "location": "Online E-Learning Platform",
+        "period": "2024 — Present",
+        "desc": "Successfully earned credentials including 'Data Science Essentials with Python' and 'Data Analytics Essentials', establishing a strong foundation in modern data pipelines."
+      },
+      {
+        "degree": "High School Diploma (Science & Mathematics Major)",
+        "school": "La Minn Eain, Private High School",
+        "location": "Taunggyi, South Shan State, Myanmar",
+        "period": "2017 — 2019",
+        "desc": "Graduated with a focus on Mathematics and Science, building a robust analytical foundation for computing systems."
+      }
+    ]
+  },
+  "contact": {
+    "section": "05 — Get In Touch",
+    "title": "Let's build something <br /> <span class=\"gradient-text\">extraordinary.</span>",
+    "subtitle": "I'm currently seeking an internship or full-time opportunities in Bangkok, Thailand. If you have any inquiries or want to connect, feel free to reach out!",
+    "button": "Say Hello",
+    "footer": "Designed with ❤️ and Next.js"
+  }
+}
