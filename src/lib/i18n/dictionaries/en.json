@@ -65,7 +65,17 @@
         "title": "Fraud-Detection: Transaction Anomaly Classifier",
         "desc": "A machine learning data pipeline designed to preprocess large financial datasets, perform feature engineering, and classify fraudulent transactions using ensemble anomaly detection models."
       }
-    ]
+    ],
+    "disclaimer": {
+      "title": "Interactive Sandbox Disclaimer",
+      "subtitle": "This live sandbox is designed strictly for architectural demonstration and educational purposes.",
+      "scopeTitle": "Simulation Scope",
+      "scopeDesc": "All operations (such as LiDAR tracking, SQL databases, ABM nodes, HDFS, and ML pipelines) are mock telemetry generated dynamically inside your browser. No physical server-side compute resources or external backend systems are active.",
+      "privacyTitle": "Data & Privacy Assurance",
+      "privacyDesc": "Privacy is fully preserved. No user data, local video/image inputs, or diagnostic metrics are stored, collected, or transmitted outside your local browser environment.",
+      "nonCommercialTitle": "Non-Commercial",
+      "nonCommercialDesc": "This application serves as a non-commercial academic portfolio showcase. No actual reservations, appointments, payments, or commercial billing transactions are processed."
+    }
   },
   "skills": {
     "section": "03 — Tech Spectrum",

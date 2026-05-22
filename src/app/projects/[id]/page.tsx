@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { projects } from "@/components/Projects";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Cpu, Sparkles, Code, Database, Layers, BarChart3 } from "lucide-react";
+import { ArrowLeft, Cpu, Sparkles, Code, Database, Layers, BarChart3, ShieldCheck, AlertTriangle } from "lucide-react";
 import Image from "next/image";
 
 export default function ProjectDetailsPage() {
@@ -180,6 +180,82 @@ export default function ProjectDetailsPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Sandbox Disclaimer */}
+        {hasLiveLink && t.projects.disclaimer && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 relative overflow-hidden rounded-[2.5rem] glass border border-white/5 p-8 md:p-10 hover:border-white/10 transition-all duration-500 shadow-2xl space-y-8 select-none"
+          >
+            {/* Header */}
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shrink-0">
+                <AlertTriangle size={24} className="animate-pulse" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-xl font-display font-black tracking-tight text-foreground/90">
+                  {t.projects.disclaimer.title}
+                </h3>
+                <p className="text-xs text-foreground/40 font-bold uppercase tracking-wider">
+                  {t.projects.disclaimer.subtitle}
+                </p>
+              </div>
+            </div>
+
+            {/* Grid of structured notes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
+              {/* Item 1: Scope */}
+              <div className="space-y-3 p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03] hover:bg-white/[0.02] transition-colors group">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/10 group-hover:scale-105 transition-transform duration-300">
+                    <Cpu size={16} />
+                  </div>
+                  <h4 className="font-bold text-sm text-foreground/90">
+                    {t.projects.disclaimer.scopeTitle}
+                  </h4>
+                </div>
+                <p className="text-xs text-foreground/50 leading-relaxed">
+                  {t.projects.disclaimer.scopeDesc}
+                </p>
+              </div>
+
+              {/* Item 2: Privacy */}
+              <div className="space-y-3 p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03] hover:bg-white/[0.02] transition-colors group">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 group-hover:scale-105 transition-transform duration-300">
+                    <ShieldCheck size={16} />
+                  </div>
+                  <h4 className="font-bold text-sm text-foreground/90">
+                    {t.projects.disclaimer.privacyTitle}
+                  </h4>
+                </div>
+                <p className="text-xs text-foreground/50 leading-relaxed">
+                  {t.projects.disclaimer.privacyDesc}
+                </p>
+              </div>
+
+              {/* Item 3: Non-Commercial */}
+              <div className="space-y-3 p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03] hover:bg-white/[0.02] transition-colors group">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/10 group-hover:scale-105 transition-transform duration-300">
+                    <Layers size={16} />
+                  </div>
+                  <h4 className="font-bold text-sm text-foreground/90">
+                    {t.projects.disclaimer.nonCommercialTitle}
+                  </h4>
+                </div>
+                <p className="text-xs text-foreground/50 leading-relaxed">
+                  {t.projects.disclaimer.nonCommercialDesc}
+                </p>
+              </div>
+            </div>
+
+            {/* Subtle glow highlight effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/0 via-amber-500/[0.02] to-amber-500/0 opacity-0 hover:opacity-100 blur-2xl transition-opacity duration-1000 -z-10" />
+          </motion.div>
+        )}
       </div>
     </main>
   );
