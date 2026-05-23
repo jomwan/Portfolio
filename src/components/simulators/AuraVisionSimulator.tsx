@@ -356,7 +356,7 @@ export default function AuraVisionSimulator() {
         {/* Viewfinder Canvas Frame */}
         <div 
           ref={canvasRef}
-          className="relative w-full aspect-video rounded-3xl overflow-hidden glass border border-white/5 bg-black/40 shadow-2xl flex items-center justify-center min-h-[280px]"
+          className="relative w-full aspect-video lg:aspect-auto lg:h-[35vh] xl:h-[40vh] max-h-[350px] xl:max-h-[420px] rounded-3xl overflow-hidden glass border border-white/5 bg-black/40 shadow-2xl flex items-center justify-center min-h-[220px]"
         >
           {/* Grid Overlay */}
           {gridEnabled && (
@@ -546,7 +546,7 @@ export default function AuraVisionSimulator() {
               <h3 className="font-bold text-foreground">Vector Retrieval Match (ChromaDB)</h3>
             </div>
             
-            <div className="glass rounded-3xl p-5 border border-white/5 space-y-3 flex-grow overflow-y-auto max-h-[300px] md:max-h-none">
+            <div className="glass rounded-3xl p-5 border border-white/5 space-y-3 flex-grow overflow-y-auto max-h-[240px] lg:max-h-[180px] xl:max-h-[240px]">
               <AnimatePresence>
                 {ragMatches.length > 0 ? (
                   ragMatches.map((node, idx) => (
@@ -736,7 +736,7 @@ export default function AuraVisionSimulator() {
             </button>
           </div>
 
-          <div className="flex-grow bg-black/50 border border-white/5 rounded-2xl p-4 font-mono text-[10px] text-foreground/75 leading-relaxed overflow-y-auto max-h-[300px] lg:max-h-none flex flex-col-reverse justify-end space-y-1.5 space-y-reverse select-text">
+          <div className="flex-grow bg-black/50 border border-white/5 rounded-2xl p-4 font-mono text-[10px] text-foreground/75 leading-relaxed overflow-y-auto max-h-[220px] lg:max-h-[200px] xl:max-h-[260px] flex flex-col-reverse justify-end space-y-1.5 space-y-reverse select-text">
             {logs.map((log, i) => {
               const isHighlight = log.includes("Warning") || log.includes("hazard") || log.includes("Hazard");
               return (

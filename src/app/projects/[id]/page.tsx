@@ -32,6 +32,8 @@ export default function ProjectDetailsPage() {
     ...rawProject,
     title: t.projects.items[projectIdx]?.title || rawProject.title,
     desc: t.projects.items[projectIdx]?.desc || rawProject.desc,
+    techDeepDive: t.projects.items[projectIdx]?.techDeepDive,
+    roadmap: t.projects.items[projectIdx]?.roadmap,
   };
 
   const hasLiveLink = project.live && project.live !== "#";
@@ -180,6 +182,108 @@ export default function ProjectDetailsPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Technology Deep Dive & Roadmap Section */}
+        {project.techDeepDive && project.roadmap && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-start"
+          >
+            {/* Left Column: Tech Stack Decisions */}
+            <div className="md:col-span-7 space-y-6">
+              <div className="space-y-1">
+                <h2 className="text-[10px] font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
+                  <Cpu size={12} className="animate-pulse" />
+                  {t.projects.deepDive}
+                </h2>
+                <h3 className="text-2xl font-display font-black tracking-tight text-foreground/90">
+                  {t.projects.techDecisions}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {project.techDeepDive.map((item: { tech: string; how: string; why: string }, idx: number) => (
+                  <div 
+                    key={idx} 
+                    className="glass bg-white/[0.01] border border-white/5 p-6 rounded-3xl hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 relative group overflow-hidden"
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Numeric Indicator */}
+                      <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary border border-primary/10 flex items-center justify-center font-black text-xs shrink-0 group-hover:scale-105 transition-transform duration-300">
+                        {idx + 1}
+                      </div>
+                      <div className="space-y-3 flex-1">
+                        <h4 className="font-display font-black text-base text-foreground/90 group-hover:text-primary transition-colors">
+                          {item.tech}
+                        </h4>
+                        
+                        {/* How It's Used */}
+                        <div className="space-y-1">
+                          <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold block">
+                            How it is implemented
+                          </span>
+                          <p className="text-xs text-foreground/60 leading-relaxed">
+                            {item.how}
+                          </p>
+                        </div>
+
+                        {/* Selection Logic (Why) */}
+                        <div className="space-y-1">
+                          <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold block">
+                            Selection Logic (Why)
+                          </span>
+                          <p className="text-xs text-foreground/60 leading-relaxed italic">
+                            {item.why}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Hover Glow Grid */}
+                    <div className="absolute -inset-px bg-gradient-to-r from-primary/5 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Future Engineering Roadmap */}
+            <div className="md:col-span-5 space-y-6">
+              <div className="space-y-1">
+                <h2 className="text-[10px] font-bold uppercase tracking-widest text-secondary flex items-center gap-1.5">
+                  <Sparkles size={12} className="animate-pulse" />
+                  Future Integration
+                </h2>
+                <h3 className="text-2xl font-display font-black tracking-tight text-foreground/90">
+                  {t.projects.futureRoadmap}
+                </h3>
+              </div>
+
+              <div className="glass bg-white/[0.01] border border-white/5 p-6 md:p-8 rounded-[2.5rem] relative overflow-hidden space-y-6">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -z-10" />
+                
+                <div className="space-y-6">
+                  {project.roadmap.map((step: string, idx: number) => (
+                    <div key={idx} className="flex gap-4 items-start group">
+                      <div className="w-6 h-6 rounded-full bg-secondary/10 text-secondary border border-secondary/10 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                        {idx + 1}
+                      </div>
+                      <div className="space-y-1 flex-1">
+                        <p className="text-xs text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">
+                          {step}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Cybernetic Accent Line */}
+                <div className="h-0.5 w-full bg-gradient-to-r from-primary/20 via-secondary/20 to-transparent rounded-full pt-0.5" />
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* Sandbox Disclaimer */}
         {hasLiveLink && t.projects.disclaimer && (

@@ -44,26 +44,170 @@
     "title": "Selected <span class=\"gradient-text\">Projects</span>",
     "subtitle": "Academic and open-source applications focused on data structures, database design, and modeling simulations.",
     "deepDive": "Deep Dive",
+    "techDecisions": "Technology Stack Decisions",
+    "futureRoadmap": "Future Engineering Roadmap",
+    "demoDisclaimer": {
+      "title": "Acknowledge Simulation Mode",
+      "subtitle": "Interactive Sandbox Gateway",
+      "text": "This interactive sandbox is built strictly to demonstrate the system's core architectural concepts, user interface telemetry, and technical logic inside your browser. While it demonstrates how the underlying workflows operate, all telemetry is simulated locally, and the actual production on-device or physical server-side source code may vary from this web simulation.",
+      "agree": "Acknowledge & Enter Sandbox",
+      "back": "Return to Case Study"
+    },
     "items": [
       {
         "title": "AuraVision: Advanced Assistive Vision System (SmartAV)",
-        "desc": "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory."
+        "desc": "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory.",
+        "techDeepDive": [
+          {
+            "tech": "YOLOv26n & FaceNet",
+            "how": "Executes high-frequency, low-latency object boundary segmentation (YOLOv26n) and face recognition features (FaceNet-PyTorch) directly on local device frames.",
+            "why": "Selected to guarantee 100% on-device visual processing safety and zero cloud execution latency, ensuring visually impaired wearers receive immediate hazard indicators."
+          },
+          {
+            "tech": "LlamaIndex & ChromaDB",
+            "how": "Orchestrates complex semantic vector indexing and retrieval pipelines, converting observations into high-dimensional embeddings queryable in natural language.",
+            "why": "Chosen because LlamaIndex simplifies index metadata wrapping and temporal query filters (e.g. 'Where were my keys yesterday?'), coupled with ChromaDB's sub-millisecond local vector lookups."
+          },
+          {
+            "tech": "FastAPI & Authlib",
+            "how": "Hosts the asynchronous web API layer and local admin dashboard, employing Authlib and Firebase Auth to isolate multi-user session tokens.",
+            "why": "Provides an asynchronous, high-throughput backend server using Uvicorn to stream live spatial maps and update logs with sub-10ms latency."
+          },
+          {
+            "tech": "gTTS & Pygame Audio Loop",
+            "how": "Processes text synthesis dynamically using Google TTS, passing audio bytes directly into a dedicated Pygame audio device playback loop.",
+            "why": "Enables non-blocking voice-feedback response streams that are perfectly synchronized with typing layouts (~50ms latency), maintaining a clean UI flow."
+          }
+        ],
+        "roadmap": [
+          "Edge hardware compilation: Port neural weights and run deep learning models via ONNX Runtime optimized directly for NVIDIA Jetson Nano / Raspberry Pi 5 wearable rigs.",
+          "3D spatial audio: Integrate binaural acoustic spatialization APIs to synthesize 3D sound indicators pointing wearers directly toward object coordinates.",
+          "Dynamic Firestore sync: Develop automated cloud metadata synchronization, saving local vector snapshot indexes to Firebase secure stores only when connected to Wi-Fi."
+        ]
       },
       {
         "title": "golf-bookr: Schema & Reservation Engine",
-        "desc": "An interactive reservation platform designed with a highly optimized database schema, managing real-time booking availability, relational user associations, and robust transaction concurrency."
+        "desc": "An interactive reservation platform designed with a highly optimized database schema, managing real-time booking availability, relational user associations, and robust transaction concurrency.",
+        "techDeepDive": [
+          {
+            "tech": "Google Generative AI",
+            "how": "Integrates Gemini LLM via the new @google/generative-ai SDK to build smart slot recommendations and natural language booking query assistance.",
+            "why": "Selected to empower users with conversational scheduling interfaces, converting simple sentences (e.g., 'Book a slot for pine valley tomorrow morning') into structured database commands."
+          },
+          {
+            "tech": "Express & WebSockets",
+            "how": "Drives the backend server architecture and coordinates active WebSocket links to instantly broadcast schedule state changes across all client screens.",
+            "why": "Selected to deliver a sub-50ms real-time experience, ensuring multiple parallel clients view identical slot updates without reloading."
+          },
+          {
+            "tech": "ACID Row Locks (FOR UPDATE)",
+            "how": "Enforces isolated locking on targeted slot index rows inside MySQL/SQLite databases during booking validation execution.",
+            "why": "Chosen to prevent high-traffic race conditions and duplicate booking anomalies, guaranteeing 100% data consistency under high concurrent load."
+          },
+          {
+            "tech": "Vitest & Bcrypt",
+            "how": "Performs fast unit and integration tests using Vitest, while securing all user credentials via bcrypt cryptographic hashing.",
+            "why": "Bcrypt provides industry-standard salt-hashing, and Vitest delivers automated, blazing-fast transaction concurrency testing."
+          }
+        ],
+        "roadmap": [
+          "Redis Caching Integration: Set up a Redis database cache to serve available slot reads instantly, dropping database query overhead during high-demand windows.",
+          "RabbitMQ Queue Throttling: Implement a message queuing pattern to serialize incoming bookings gracefully when massive tournament events open.",
+          "Idempotent Payments: Integrate Stripe payment tokens with idempotent transaction IDs to guarantee bookings are finalized only upon verified payment confirmation."
+        ]
       },
       {
         "title": "TikTok ABM: Agent-Based Data Simulator",
-        "desc": "A simulation framework built in Python to model and analyze user interactions, content recommendation algorithms, and viral network dynamics on the TikTok platform."
+        "desc": "A simulation framework built in Python to model and analyze user interactions, content recommendation algorithms, and viral network dynamics on the TikTok platform.",
+        "techDeepDive": [
+          {
+            "tech": "Mesa ABM Framework",
+            "how": "Simulates 500 virtual consumer agents with individual personality types (Innovators, Followers, Skeptics) progressing through 3-stage marketing funnels.",
+            "why": "Selected as the leading Python multi-agent model framework, providing built-in scheduler grids and robust agent step orchestrations."
+          },
+          {
+            "tech": "Stealth Selenium Scraper",
+            "how": "Scrapes actual TikTok trending metrics, page view statistics, and user sentiments using Selenium stealth configurations.",
+            "why": "Chosen to bypass web scraping blocker scripts, ensuring the simulation is initialized with authentic Songkran festival seasonal trend data."
+          },
+          {
+            "tech": "Solara & Plotly UI",
+            "how": "Renders a modern, responsive React-in-Python web dashboard showing dynamic, interactive Plotly network graph layouts and conversion metrics.",
+            "why": "Solara permits building state-of-the-art interactive dashboards entirely in Python without complex Node.js setups, keeping codebases unified."
+          },
+          {
+            "tech": "Watts-Strogatz Network Graphs",
+            "how": "Maps connection edges among virtual users via small-world network graphs in NetworkX to simulate authentic word-of-mouth info cascades.",
+            "why": "Chosen over random networks to accurately model real-world social clustering, where users prefer trends shared by close friends."
+          }
+        ],
+        "roadmap": [
+          "Reinforcement learning agents: Train virtual consumers using deep Q-learning networks to model self-adaptive behavior based on content feed interactions.",
+          "Neo4j graph migration: Port graph models into a real-time Neo4j instance to scale active simulation capacity to thousands of nodes.",
+          "Linguistic sentiment modeling: Implement local Transformer pipelines to dynamically update agent sentiment parameters based on review streams."
+        ]
       },
       {
         "title": "HDFS: Distributed Storage Explorer",
-        "desc": "An analytical visualizer designed to simulate distributed storage filesystems, modeling chunk replication, NameNode operations, and distributed data pipelines."
+        "desc": "An analytical visualizer designed to simulate distributed storage filesystems, modeling chunk replication, NameNode operations, and distributed data pipelines.",
+        "techDeepDive": [
+          {
+            "tech": "Multi-Container Docker Cluster",
+            "how": "Orchestrates a 12-container distributed infrastructure ecosystem including HDFS (NameNode/DataNodes), Apache Spark, Hive, and MongoDB.",
+            "why": "Built to simulate a true production-scale big data cluster locally on WSL2, providing separate network layers for storage and compute engines."
+          },
+          {
+            "tech": "Apache Spark (PySpark)",
+            "how": "Executes massive distributed analytical DAG queries over transactional datasets, loading data partitions directly from HDFS files.",
+            "why": "Selected because of Spark's lightning-fast in-memory processing speeds and robust API support for handling raw tabular telemetry."
+          },
+          {
+            "tech": "Apache Hive & PostgreSQL Metastore",
+            "how": "Manages schema models, catalogs, and structured corporate tables over raw HDFS files using PostgreSQL as the central Metastore database.",
+            "why": "Allows querying storage backends natively via SQL, bridging the gap between raw distributed files and structured relational tables."
+          },
+          {
+            "tech": "PyThaiNLP Word Tokenizer",
+            "how": "Runs PyThaiNLP's custom 'newmm' word segmentation inside a Spark User-Defined Function (UDF) to analyze Thai shop review sentiment streams.",
+            "why": "Selected because standard tokenizers cannot parse Thai language words, enabling high-performance Spark sentiment analysis for local e-commerce."
+          }
+        ],
+        "roadmap": [
+          "Erasure Coding (HDFS 3.x): Implement Erasure Coding simulations (Reed-Solomon 6+3) to show storage footprint reduction from 3x to 1.5x while keeping identical fault tolerance.",
+          "Active-Active NameNode Topology: Upgrade the high-availability simulation to model Quorum Journal Managers (QJM) and Apache ZooKeeper synchronization.",
+          "Automated Block Balancer: Build a block rebalancing utility simulator that automatically redistributes block densities when a new DataNode joins the rack."
+        ]
       },
       {
         "title": "Fraud-Detection: Transaction Anomaly Classifier",
-        "desc": "A machine learning data pipeline designed to preprocess large financial datasets, perform feature engineering, and classify fraudulent transactions using ensemble anomaly detection models."
+        "desc": "A machine learning data pipeline designed to preprocess large financial datasets, perform feature engineering, and classify fraudulent transactions using ensemble anomaly detection models.",
+        "techDeepDive": [
+          {
+            "tech": "Medallion Lakehouse Architecture",
+            "how": "Processes incoming transaction streams through three storage tiers: Bronze (append JSONL), Silver (validated schema CSV with ML risk flags), and Gold (KPI aggregates).",
+            "why": "Selected to enforce absolute data governance, schema validation, and audit tracking across the ingestion pipeline, ensuring compliance with PCI-DSS."
+          },
+          {
+            "tech": "Hybrid ML Ensemble Engine",
+            "how": "Ensembles predictions from XGBoost (supervised, 40%), Isolation Forest (unsupervised outlier detection, 25%), and a custom PyTorch LSTM (deep sequence, 35%).",
+            "why": "XGBoost catches known fraud targets, Isolation Forest detects zero-day anomalies, and the PyTorch LSTM parses sequential history to identify temporal 'Smurfing' patterns."
+          },
+          {
+            "tech": "Apache Kafka & Redis feature store",
+            "how": "Streams transactions via Kafka Producers/Consumers, while managing sub-millisecond customer velocity features in a Redis cache.",
+            "why": "Enables high-throughput, low-latency live evaluations, letting the system calculate velocity indicators and predict risk in under 10ms per transaction."
+          },
+          {
+            "tech": "Evidently AI & Streamlit",
+            "how": "Monitors model data and concept drift using Evidently metrics, compiling interactive graphs inside a Streamlit administration portal.",
+            "why": "Provides an intuitive dashboard for risk analysts, automatically alerting developers when changes in user transaction behavior degrade model precision."
+          }
+        ],
+        "roadmap": [
+          "Apache Flink stream processing: Port consumer logic to Apache Flink for true stateful stream computations and millisecond event window calculations.",
+          "Autoencoder reconstruction models: Train unsupervised PyTorch Autoencoders to score transaction risk based on feature reconstruction error spikes.",
+          "Active human feedback loops: Build transaction alert simulation loops, automatically retraining ML weights when users confirm suspicious alerts."
+        ]
       }
     ],
     "disclaimer": {
