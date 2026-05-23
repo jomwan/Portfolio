@@ -123,7 +123,7 @@ export default function ProjectDemoPage() {
       </header>
 
       {/* Main Simulator Workspace (100% full screen minus header) */}
-      <div className="flex-grow overflow-auto bg-black/10 relative flex flex-col">
+      <div className="flex-grow overflow-auto lg:overflow-hidden bg-black/10 relative flex flex-col lg:h-[calc(100vh-4rem)] min-h-0">
         <Suspense fallback={<SimulatorLoader name={projectTitle} />}>
           {renderSimulator()}
         </Suspense>

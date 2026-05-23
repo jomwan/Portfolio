@@ -330,7 +330,7 @@ export default function AuraVisionSimulator() {
     <div className="w-full min-h-full lg:h-full flex flex-col lg:flex-row bg-background text-foreground text-sm overflow-y-auto lg:overflow-hidden select-none">
       
       {/* 1. Left Section: Spatial Perception Camera Sandbox */}
-      <div className="flex-grow flex flex-col p-4 sm:p-6 lg:p-8 space-y-6 lg:overflow-y-auto shrink-0">
+      <div className="flex-grow flex flex-col p-4 sm:p-6 lg:p-8 space-y-6 lg:overflow-y-auto shrink-0 lg:h-full lg:min-h-0">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-display font-bold text-foreground flex items-center gap-2">
@@ -596,7 +596,7 @@ export default function AuraVisionSimulator() {
       </div>
 
       {/* 3. Right Sidebar: Perception Controls & Log Streams */}
-      <div className="w-full lg:w-96 border-t lg:border-t-0 lg:border-l border-white/5 bg-black/20 backdrop-blur-md flex flex-col shrink-0 lg:overflow-y-auto">
+      <div className="w-full lg:w-96 border-t lg:border-t-0 lg:border-l border-white/5 bg-black/20 backdrop-blur-md flex flex-col shrink-0 lg:overflow-y-auto lg:h-full lg:min-h-0">
         
         {/* Toggle Toggles */}
         <div className="p-6 lg:p-8 border-b border-white/5 space-y-6">
