@@ -92,7 +92,7 @@ export default function Skills() {
       skills: ["Apache Spark", "Apache Kafka", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI"],
       color: "text-purple-400",
       bg: "bg-purple-500/5",
-      span: "md:col-span-2 md:row-span-2",
+      span: "md:col-span-8",
     },
     {
       title: t.skills.cards[1]?.label || "Languages & Frameworks",
@@ -101,7 +101,7 @@ export default function Skills() {
       skills: ["Python", "SQL", "JavaScript", "TypeScript", "HTML/CSS"],
       color: "text-blue-400",
       bg: "bg-blue-500/5",
-      span: "md:col-span-2",
+      span: "md:col-span-4",
     },
     {
       title: t.skills.cards[2]?.label || "Databases & Storage",
@@ -110,7 +110,7 @@ export default function Skills() {
       skills: ["MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "MongoDB", "Docker", "Firebase"],
       color: "text-emerald-400",
       bg: "bg-emerald-500/5",
-      span: "md:col-span-1",
+      span: "md:col-span-4",
     },
     {
       title: t.skills.cards[3]?.label || "Simulation & ML",
@@ -119,7 +119,7 @@ export default function Skills() {
       skills: ["Agent Modeling", "LlamaIndex (RAG)", "YOLOE / CV", "PyTorch", "ML Pipelines", "NetworkX"],
       color: "text-amber-400",
       bg: "bg-amber-500/5",
-      span: "md:col-span-1",
+      span: "md:col-span-8",
     },
   ];
 
@@ -158,7 +158,7 @@ export default function Skills() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
           {expertise.map((item, i) => (
             <motion.div
               key={i}
