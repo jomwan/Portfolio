@@ -62,7 +62,7 @@ const MarqueeRow = ({ items, direction = 1 }: { items: typeof skillsRow1, direct
           <motion.div
             key={i}
             whileHover={{ scale: 1.05, y: -2 }}
-            className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 rounded-2xl bg-transparent border border-foreground/[0.03] hover:border-primary/20 transition-all duration-300 group"
+            className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 rounded-2xl bg-transparent transition-all duration-300 group"
           >
             <div className="w-8 h-8 flex items-center justify-center">
               <img 
