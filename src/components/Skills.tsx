@@ -12,6 +12,8 @@ const skillsRow1 = [
   { name: "TypeScript", icon: "https://skillicons.dev/icons?i=ts" },
   { name: "React", icon: "https://skillicons.dev/icons?i=react" },
   { name: "Next.js", icon: "https://skillicons.dev/icons?i=nextjs" },
+  { name: "Docker", icon: "https://skillicons.dev/icons?i=docker" },
+  { name: "MongoDB", icon: "https://skillicons.dev/icons?i=mongodb" },
   { name: "Git", icon: "https://skillicons.dev/icons?i=git" },
   { name: "GitHub", icon: "https://skillicons.dev/icons?i=github" },
 ];
@@ -21,6 +23,8 @@ const skillsRow2 = [
   { name: "Node.js", icon: "https://skillicons.dev/icons?i=nodejs" },
   { name: "MySQL", icon: "https://skillicons.dev/icons?i=mysql" },
   { name: "SQLite", icon: "https://skillicons.dev/icons?i=sqlite" },
+  { name: "PyTorch", icon: "https://skillicons.dev/icons?i=pytorch" },
+  { name: "Apache Kafka", icon: "https://skillicons.dev/icons?i=kafka" },
   { name: "TailwindCSS", icon: "https://skillicons.dev/icons?i=tailwind" },
   { name: "Pandas", icon: "https://skillicons.dev/icons?i=pandas" },
   { name: "Firebase", icon: "https://skillicons.dev/icons?i=firebase" },
@@ -30,6 +34,8 @@ const skillsRow2 = [
 const skillsRow3 = [
   { name: "Scikit-Learn", icon: "https://cdn.simpleicons.org/scikitlearn/F99923" },
   { name: "Apache Hadoop", icon: "https://cdn.simpleicons.org/apachehadoop/CC8A00" },
+  { name: "ChromaDB", icon: "https://api.iconify.design/lucide:database-backup.svg?color=%23FF7043" },
+  { name: "Vector RAG", icon: "https://api.iconify.design/lucide:binary.svg?color=%2329B6F6" },
   { name: "Streamlit", icon: "https://cdn.simpleicons.org/streamlit/FF4B4B" },
   { name: "Solara", icon: "https://api.iconify.design/lucide:sun.svg?color=%23FFB800" },
   { name: "Apache Spark", icon: "https://cdn.simpleicons.org/apachespark/E25A1C" },
@@ -50,13 +56,13 @@ const MarqueeRow = ({ items, direction = 1 }: { items: typeof skillsRow1, direct
           repeat: Infinity,
           ease: "linear",
         }}
-        className="flex flex-nowrap gap-12"
+        className="flex flex-nowrap gap-6 md:gap-12"
       >
         {[...items, ...items, ...items].map((skill, i) => (
           <motion.div
             key={i}
             whileHover={{ scale: 1.05, y: -2 }}
-            className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-transparent border border-foreground/[0.03] hover:border-primary/20 transition-all duration-300 group"
+            className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 rounded-2xl bg-transparent border border-foreground/[0.03] hover:border-primary/20 transition-all duration-300 group"
           >
             <div className="w-8 h-8 flex items-center justify-center">
               <img 
@@ -65,7 +71,7 @@ const MarqueeRow = ({ items, direction = 1 }: { items: typeof skillsRow1, direct
                 className="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-500"
               />
             </div>
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/80 transition-colors whitespace-nowrap">
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] text-foreground/40 group-hover:text-foreground/80 transition-colors whitespace-nowrap">
               {skill.name}
             </span>
           </motion.div>
@@ -83,7 +89,7 @@ export default function Skills() {
       title: t.skills.cards[0]?.label || "Data Engineering & Analytics",
       desc: t.skills.cards[0]?.desc || "Designing data pipelines, processing datasets, and modeling analytical databases.",
       icon: BarChart3,
-      skills: ["Apache Spark", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI"],
+      skills: ["Apache Spark", "Apache Kafka", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI"],
       color: "text-purple-400",
       bg: "bg-purple-500/5",
       span: "md:col-span-2 md:row-span-2",
@@ -101,7 +107,7 @@ export default function Skills() {
       title: t.skills.cards[2]?.label || "Databases & Storage",
       desc: t.skills.cards[2]?.desc || "Robust relational databases and distributed storage solutions.",
       icon: Database,
-      skills: ["MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "Firebase"],
+      skills: ["MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "MongoDB", "Docker", "Firebase"],
       color: "text-emerald-400",
       bg: "bg-emerald-500/5",
       span: "md:col-span-1",
@@ -110,7 +116,7 @@ export default function Skills() {
       title: t.skills.cards[3]?.label || "Simulation & ML",
       desc: t.skills.cards[3]?.desc || "Complex data modeling, analysis, and network simulations.",
       icon: BrainCircuit,
-      skills: ["Agent Modeling", "LlamaIndex (RAG)", "YOLOE / CV", "ML Pipelines", "NetworkX"],
+      skills: ["Agent Modeling", "LlamaIndex (RAG)", "YOLOE / CV", "PyTorch", "ML Pipelines", "NetworkX"],
       color: "text-amber-400",
       bg: "bg-amber-500/5",
       span: "md:col-span-1",
