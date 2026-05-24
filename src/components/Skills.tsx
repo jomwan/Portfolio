@@ -62,7 +62,7 @@ const MarqueeRow = ({ items, direction = 1 }: { items: typeof skillsRow1, direct
           <motion.div
             key={i}
             whileHover={{ scale: 1.05, y: -2 }}
-            className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 rounded-2xl bg-transparent transition-all duration-300 group"
+            className="flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 rounded-2xl bg-transparent border border-foreground/[0.03] hover:border-primary/20 transition-all duration-300 group"
           >
             <div className="w-8 h-8 flex items-center justify-center">
               <img 
@@ -124,7 +124,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-32 px-6 relative overflow-hidden bg-foreground/[0.01]">
+    <section id="skills" className="py-32 px-6 relative overflow-hidden bg-transparent">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-24">
           <motion.span
@@ -193,7 +193,7 @@ export default function Skills() {
         </div>
 
         {/* Logo Marquee */}
-        <div className="relative space-y-6 pt-12 border-t border-white/5">
+        <div className="relative space-y-6 pt-12 bg-transparent">
           <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-background to-transparent z-10" />
 
