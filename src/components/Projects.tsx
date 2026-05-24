@@ -245,7 +245,7 @@ export default function Projects() {
                   scale: { duration: 0.4 },
                   layout: { type: "spring", stiffness: 220, damping: 28 }
                 }}
-                className={project.featured ? "md:col-span-2" : ""}
+                className=""
               >
                 <Link
                   href={`/projects/${project.id}`}
@@ -253,7 +253,7 @@ export default function Projects() {
                 >
                   <div className="group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full">
                     {/* Image Section */}
-                    <div className={`relative overflow-hidden ${project.featured ? "h-80 md:h-[450px]" : "h-64"}`}>
+                    <div className="relative overflow-hidden h-64 md:h-80">
                       <Image 
                         src={project.image} 
                         alt={project.title}
