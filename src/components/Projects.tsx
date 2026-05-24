@@ -197,7 +197,7 @@ export default function Projects() {
   const visibleProjects = isExpanded ? projectItems : projectItems.slice(0, 3);
 
   return (
-    <section id="projects" className="py-24 px-6 relative overflow-hidden bg-background">
+    <section id="projects" className="py-24 px-6 relative overflow-hidden bg-transparent">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
