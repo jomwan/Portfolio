@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Globe, Database, Cpu, TrendingUp, BarChart3, ArrowRight, ShieldCheck, Eye } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Globe, Database, Cpu, TrendingUp, BarChart3, ArrowRight, ShieldCheck, Eye, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
@@ -186,12 +186,15 @@ export const projects: Project[] = [
 
 export default function Projects() {
   const { t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const projectItems = projects.map((proj, i) => ({
     ...proj,
     title: t.projects.items[i]?.title || proj.title,
     desc: t.projects.items[i]?.desc || proj.desc,
   }));
+
+  const visibleProjects = isExpanded ? projectItems : projectItems.slice(0, 3);
 
   return (
     <section id="projects" className="py-24 px-6 relative overflow-hidden bg-background">
@@ -228,93 +231,125 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projectItems.map((project, i) => (
-            <Link
-              href={`/projects/${project.id}`}
-              key={project.id}
-              className={`block ${project.featured ? "md:col-span-2" : ""}`}
-            >
+          <AnimatePresence mode="popLayout">
+            {visibleProjects.map((project, i) => (
               <motion.div
+                key={project.id}
+                layout
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full"
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30, scale: 0.95 }}
+                transition={{ 
+                  opacity: { duration: 0.5 },
+                  y: { duration: 0.5 },
+                  scale: { duration: 0.4 },
+                  layout: { type: "spring", stiffness: 220, damping: 28 }
+                }}
+                className={project.featured ? "md:col-span-2" : ""}
               >
-              {/* Image Section */}
-              <div className={`relative overflow-hidden ${project.featured ? "h-80 md:h-[450px]" : "h-64"}`}>
-                <Image 
-                  src={project.image} 
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent opacity-60" />
-                
-                {/* Metric Badge */}
-                <div className="absolute top-6 left-6 px-4 py-2 glass rounded-full flex items-center gap-2 border border-white/10">
-                  <span className="text-primary">{project.icon}</span>
-                  <span className="text-xs font-bold tracking-wider text-foreground">{project.metric}</span>
-                </div>
-
-                {/* Floating Tech Icons */}
-                <div className="absolute top-6 right-6 flex -space-x-2">
-                  {project.icons.map((slug, idx) => (
-                    <div key={idx} className="w-9 h-9 rounded-full bg-background/80 backdrop-blur-md border border-white/10 p-2 flex items-center justify-center hover:z-10 transition-all hover:-translate-y-1">
-                      <img 
-                        src={getIconUrl(slug)} 
-                        alt={slug}
-                        className="w-full h-full object-contain"
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="block h-full"
+                >
+                  <div className="group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full">
+                    {/* Image Section */}
+                    <div className={`relative overflow-hidden ${project.featured ? "h-80 md:h-[450px]" : "h-64"}`}>
+                      <Image 
+                        src={project.image} 
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
+                      <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent opacity-60" />
+                      
+                      {/* Metric Badge */}
+                      <div className="absolute top-6 left-6 px-4 py-2 glass rounded-full flex items-center gap-2 border border-white/10">
+                        <span className="text-primary">{project.icon}</span>
+                        <span className="text-xs font-bold tracking-wider text-foreground">{project.metric}</span>
+                      </div>
+
+                      {/* Floating Tech Icons */}
+                      <div className="absolute top-6 right-6 flex -space-x-2">
+                        {project.icons.map((slug, idx) => (
+                          <div key={idx} className="w-9 h-9 rounded-full bg-background/80 backdrop-blur-md border border-white/10 p-2 flex items-center justify-center hover:z-10 transition-all hover:-translate-y-1">
+                            <img 
+                              src={getIconUrl(slug)} 
+                              alt={slug}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Content Section */}
-              <div className="p-8 md:p-10 flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="max-w-[80%]">
-                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-foreground/50 text-lg leading-relaxed line-clamp-3">
-                      {project.desc}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="w-12 h-12 glass flex items-center justify-center rounded-full text-foreground/40 hover:text-primary transition-all border border-white/5">
-                      <ArrowRight size={20} className="group-hover:translate-x-1 group-hover:-rotate-45 transition-all" />
+                    {/* Content Section */}
+                    <div className="p-8 md:p-10 flex flex-col flex-grow">
+                      <div className="flex justify-between items-start mb-6">
+                        <div className="max-w-[80%]">
+                          <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-foreground/50 text-lg leading-relaxed line-clamp-3">
+                            {project.desc}
+                          </p>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                          <div className="w-12 h-12 glass flex items-center justify-center rounded-full text-foreground/40 hover:text-primary transition-all border border-white/5">
+                            <ArrowRight size={20} className="group-hover:translate-x-1 group-hover:-rotate-45 transition-all" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-auto pt-8 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.map((tech, idx) => (
+                            <span
+                              key={tech}
+                              className="px-4 py-1 rounded-full bg-foreground/[0.03] text-[10px] font-bold uppercase tracking-widest text-foreground/40 border border-white/5"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                        <div 
+                          className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          {t.projects.deepDive} <ArrowRight size={16} />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="mt-auto pt-8 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, idx) => (
-                      <span
-                        key={tech}
-                        className="px-4 py-1 rounded-full bg-foreground/[0.03] text-[10px] font-bold uppercase tracking-widest text-foreground/40 border border-white/5"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {/* Liquid Highlight Effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-1000 -z-10" />
                   </div>
-                  <motion.div 
-                    className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    {t.projects.deepDive} <ArrowRight size={16} />
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Liquid Highlight Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-1000 -z-10" />
+                </Link>
               </motion.div>
-            </Link>
-          ))}
+            ))}
+          </AnimatePresence>
         </div>
+
+        {/* Toggle Button */}
+        <motion.div 
+          layout
+          className="flex justify-center mt-16"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(var(--primary-rgb), 0.15)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="group relative flex items-center gap-3 px-8 py-4 glass rounded-full border border-white/10 hover:border-primary/30 transition-all duration-300 text-foreground font-display font-bold uppercase tracking-widest text-xs hover:text-primary cursor-pointer"
+          >
+            {/* Glossy Gradient Hover Fill */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-500" />
+            
+            <span>{isExpanded ? t.projects.showLess : t.projects.seeMore}</span>
+            <ChevronDown 
+              size={18} 
+              className={`text-primary transition-transform duration-500 ease-out ${isExpanded ? "rotate-180" : ""}`}
+            />
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Background Decorative Elements */}

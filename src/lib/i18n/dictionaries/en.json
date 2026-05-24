@@ -46,6 +46,8 @@
     "deepDive": "Deep Dive",
     "techDecisions": "Technology Stack Decisions",
     "futureRoadmap": "Future Engineering Roadmap",
+    "seeMore": "See More Projects",
+    "showLess": "Show Less",
     "demoDisclaimer": {
       "title": "Acknowledge Simulation Mode",
       "subtitle": "Interactive Sandbox Gateway",
