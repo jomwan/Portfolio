@@ -11,6 +11,7 @@ export default function Hero() {
   const { t } = useLanguage();
   const [nameIndex, setNameIndex] = useState(0);
   const names = [PERSONAL.name.toUpperCase(), PERSONAL.nickname];
+  const [interestIdx, setInterestIdx] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -18,6 +19,14 @@ export default function Hero() {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!t.hero.interests || t.hero.interests.length === 0) return;
+    const interval = setInterval(() => {
+      setInterestIdx((prev) => (prev + 1) % t.hero.interests.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [t.hero.interests?.length]);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 overflow-hidden">
@@ -81,25 +90,25 @@ export default function Hero() {
           </div>
         </motion.h1>
 
-        {/* Interests Marquee Style */}
-        <div className="relative w-full overflow-hidden py-8 mb-8">
-          <div className="absolute inset-y-0 left-0 w-20 bg-linear-to-r from-background to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-linear-to-l from-background to-transparent z-10" />
-
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="flex gap-12 whitespace-nowrap w-fit px-6"
-          >
-            {[...t.hero.interests, ...t.hero.interests, ...t.hero.interests].map((item, i) => (
-              <span
-                key={i}
-                className="text-xl md:text-2xl font-display font-bold uppercase tracking-[0.2em] text-foreground/20 hover:text-primary transition-colors cursor-default"
+        {/* Interests Vertical 3D Flip Style */}
+        <div className="relative w-full overflow-hidden py-4 mb-8 flex flex-col items-center justify-center">
+          <div className="h-16 flex items-center justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={interestIdx}
+                initial={{ rotateX: -90, opacity: 0, y: 15 }}
+                animate={{ rotateX: 0, opacity: 1, y: 0 }}
+                exit={{ rotateX: 90, opacity: 0, y: -15 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+                className="text-xl md:text-3xl font-display font-black uppercase tracking-[0.25em] gradient-text select-none text-center block leading-none py-1"
+                style={{ transformOrigin: "center center -20px", backfaceVisibility: "hidden" }}
               >
-                {item}
-              </span>
-            ))}
-          </motion.div>
+                {t.hero.interests[interestIdx]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+          {/* Subtle Cyber Underline Glow */}
+          <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent mt-4 blur-[1px]" />
         </div>
 
         <motion.p

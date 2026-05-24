@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
@@ -11,19 +12,24 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Navbar() {
   const { t } = useLanguage();
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("home");
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  const navLinks = useMemo(() => [
-    { name: t.navbar.home, href: "#home", id: "home" },
-    { name: t.navbar.about, href: "#about", id: "about" },
-    { name: t.navbar.projects, href: "#projects", id: "projects" },
-    { name: t.navbar.skills, href: "#skills", id: "skills" },
-    { name: t.navbar.educations, href: "#educations", id: "educations" },
-    { name: t.navbar.contact, href: "#contact", id: "contact" },
-  ], [t]);
+  const navLinks = useMemo(() => {
+    const isHome = pathname === "/";
+    return [
+      { name: t.navbar.home, href: isHome ? "#home" : "/", id: "home" },
+      { name: t.navbar.about, href: isHome ? "#about" : "/#about", id: "about" },
+      { name: t.navbar.projects, href: isHome ? "#projects" : "/#projects", id: "projects" },
+      { name: t.navbar.skills, href: isHome ? "#skills" : "/#skills", id: "skills" },
+      { name: t.navbar.educations, href: isHome ? "#educations" : "/#educations", id: "educations" },
+      { name: t.navbar.internship, href: "/internship", id: "internship" },
+      { name: t.navbar.contact, href: isHome ? "#contact" : "/#contact", id: "contact" },
+    ];
+  }, [t, pathname]);
 
   // Handle Hide/Show on scroll
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -37,6 +43,11 @@ export default function Navbar() {
 
   // Handle Active Link on scroll
   useEffect(() => {
+    if (pathname === "/internship") {
+      setActiveSection("internship");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,12 +63,14 @@ export default function Navbar() {
     );
 
     navLinks.forEach((link) => {
-      const el = document.querySelector(link.href);
-      if (el) observer.observe(el);
+      if (link.href.startsWith("#")) {
+        const el = document.querySelector(link.href);
+        if (el) observer.observe(el);
+      }
     });
 
     return () => observer.disconnect();
-  }, [t, navLinks]); // Re-observe when translations or links change
+  }, [t, navLinks, pathname]); // Re-observe when translations or links change
 
   return (
     <>
@@ -71,11 +84,27 @@ export default function Navbar() {
           
           {/* Logo/Name */}
           <Link 
-            href="#home" 
+            href={pathname === "/" ? "#home" : "/"} 
             onClick={() => setActiveSection("home")}
-            className="font-display text-lg font-black tracking-tighter group flex items-center gap-2"
+            className="font-display text-lg font-black tracking-tighter group flex items-center gap-2 cursor-pointer"
           >
-            <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs group-hover:scale-110 transition-transform">J</span>
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
+              <img 
+                src="https://github.com/jomwan.png" 
+                alt="Jomwan"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                  const parent = e.currentTarget.parentElement;
+                  if (parent && !parent.querySelector(".fallback-text")) {
+                    const span = document.createElement("span");
+                    span.className = "text-white text-xs font-bold font-display fallback-text";
+                    span.innerText = "J";
+                    parent.appendChild(span);
+                  }
+                }}
+              />
+            </div>
             <span className="hidden sm:block text-foreground/90">JOM</span>
           </Link>
 

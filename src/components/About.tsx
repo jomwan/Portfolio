@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Database, LineChart, BrainCircuit, ShieldCheck } from "lucide-react";
 import { STATS } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Image from "next/image";
 
 export default function About() {
   const { t } = useLanguage();
@@ -51,10 +52,20 @@ export default function About() {
                   ))}
                 </div>
 
-                <BrainCircuit size={120} className="text-primary/40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 relative z-10" />
+                <div className="absolute inset-0 w-full h-full z-10 overflow-hidden rounded-[2.5rem]">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Profile"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent z-10 mix-blend-multiply" />
+                </div>
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                  <p className="text-sm font-medium text-foreground/60 italic">{t.about.quote}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8 z-20">
+                  <p className="text-sm font-bold text-foreground italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">{t.about.quote}</p>
                 </div>
               </div>
             </div>

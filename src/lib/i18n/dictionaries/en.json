@@ -10,6 +10,9 @@
       "Data Engineering",
       "Database Design",
       "Agent-Based Modeling",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Big Data Analytics",
       "Data Specialist",
       "Data Analytics",
       "Distributed Concepts"
@@ -19,8 +22,9 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "educations": "Educations",
     "skills": "Skills",
+    "educations": "Educations",
+    "internship": "Internship",
     "contact": "Contact"
   },
   "about": {
@@ -267,5 +271,49 @@
     "subtitle": "I'm currently seeking an internship or full-time opportunities in Bangkok, Thailand. If you have any inquiries or want to connect, feel free to reach out!",
     "button": "Say Hello",
     "footer": "Designed with ❤️ and Next.js"
+  },
+  "internship": {
+    "title": "Internship & <span class=\"gradient-text\">Co-op Journal</span>",
+    "subtitle": "Engineering logs, system integrations, and weekly performance highlights during my technical internship.",
+    "role": "Software Engineering Intern",
+    "company": "Assistive Vision Technologies",
+    "duration": "June 2026 — Present",
+    "location": "Bangkok, Thailand",
+    "back": "Back to Home",
+    "disclaimerTitle": "Placement Simulation Active",
+    "disclaimerSubtitle": "Proactive Engineering Logbook Structure",
+    "disclaimerText": "All placement telemetry, logging timelines, and weekly project milestones rendered on this page are simulated models designed to demonstrate engineering logbook structure, reporting capability, and proactive documentation readiness. Real-time updates will activate once my official engineering placement is finalized. If you are a recruiter, feel free to connect!",
+    "overview": "Internship Overview",
+    "overviewDesc": "A hands-on engineering experience focused on deploying robust software systems, optimizing spatial memory pipelines, and scaling microservices.",
+    "weeksTitle": "Weekly Progress & Logbooks",
+    "weeksSubtitle": "Detailed technical documentation and weekly updates of tasks, challenges, and solutions.",
+    "upcoming": "Upcoming Logbook",
+    "upcomingDesc": "Logs will unlock sequentially as the internship progresses. Stay tuned for Week 1 engineering notes!",
+    "weeks": [
+      {
+        "id": "week-1",
+        "title": "Week 1: System Integration & Onboarding",
+        "status": "Upcoming",
+        "date": "June 1 — June 5, 2026",
+        "summary": "Initial server onboarding, continuous integration configurations, and spatial database telemetry analysis.",
+        "details": []
+      },
+      {
+        "id": "week-2",
+        "title": "Week 2: Memory Pipeline Tuning",
+        "status": "Upcoming",
+        "date": "June 8 — June 12, 2026",
+        "summary": "Optimizing local ChromaDB indexing performance and implementing temporal-spatial similarity search parameters.",
+        "details": []
+      },
+      {
+        "id": "week-3",
+        "title": "Week 3: Neural Model Edge Optimization",
+        "status": "Upcoming",
+        "date": "June 15 — June 19, 2026",
+        "summary": "Quantizing segmentation weights and porting local models via ONNX Runtime for low-latency Edge environments.",
+        "details": []
+      }
+    ]
   }
 }
