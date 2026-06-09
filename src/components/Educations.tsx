@@ -12,7 +12,10 @@ const educations = [
     school: "Rangsit University International College",
     location: "Pathum Thani, Thailand",
     period: "2023 — Present",
-    desc: "Pursuing a major in Information and Communication Technology (ICT) under the International College. Coursework covers Web Systems Programming, Big Data Analytics, Database Management Systems, and Machine Learning.",
+    desc: "Pursuing a major in Information and Communication Technology (ICT) with a Cumulative GPA of 3.56 (highlighted by a perfect 4.00 GPA in the final semester). Core coursework covers Data Science, Big Data Analytics, Machine Learning, Data Structures & Algorithms, and Mobile Applications Implementation.",
+    links: [
+      { label: "GPA & Coursework", url: "/cert/GPA%20and%20Relevant%20Coursework.pdf" }
+    ]
   },
   {
     degree: "Certified Data Specialist",

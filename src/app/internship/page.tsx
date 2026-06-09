@@ -1,14 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Building, MapPin, Lock, BookOpen, Cpu, Layers, Briefcase, Sparkles } from "lucide-react";
+import { ArrowLeft, Calendar, Building, MapPin, Lock, BookOpen, Cpu, Layers, Briefcase, Sparkles, AlertTriangle } from "lucide-react";
 
 export default function InternshipPage() {
   const router = useRouter();
   const { t } = useLanguage();
+  const [hasAccepted, setHasAccepted] = useState(false);
 
   const mockTechStack = ["Next.js", "FastAPI", "LlamaIndex RAG", "ChromaDB", "YOLOE / CV", "Docker", "Git"];
 
@@ -65,34 +67,6 @@ export default function InternshipPage() {
           </motion.p>
         </div>
 
-        {/* Recruitment/Simulation Warning Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mb-12 relative overflow-hidden rounded-[2.5rem] glass border border-amber-500/10 bg-amber-500/[0.02] p-6 md:p-8 hover:border-amber-500/20 transition-all duration-300 shadow-2xl select-none"
-        >
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shrink-0">
-              <Sparkles size={20} className="animate-pulse" />
-            </div>
-            <div className="space-y-2">
-              <div className="space-y-0.5">
-                <h3 className="text-lg font-display font-black tracking-tight text-foreground/90">
-                  {t.internship.disclaimerTitle}
-                </h3>
-                <p className="text-[10px] text-amber-500 font-bold uppercase tracking-wider">
-                  {t.internship.disclaimerSubtitle}
-                </p>
-              </div>
-              <p className="text-xs text-foreground/60 leading-relaxed max-w-4xl">
-                {t.internship.disclaimerText}
-              </p>
-            </div>
-          </div>
-          {/* Subtle glow highlight effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/0 via-amber-500/[0.02] to-amber-500/0 opacity-100 blur-2xl transition-opacity duration-1000 -z-10" />
-        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           {/* Left Column: Role & Placement Overview */}
@@ -237,6 +211,69 @@ export default function InternshipPage() {
         </div>
 
       </div>
+
+      {/* Modal Popup overlay before enter */}
+      <AnimatePresence>
+        {!hasAccepted && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/90 backdrop-blur-xl"
+          >
+            {/* Glowing blur decorations inside the modal */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] -z-10" />
+
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="w-full max-w-lg glass bg-white/[0.01] border border-white/10 p-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden space-y-6 text-center select-none"
+            >
+              {/* Header Icon */}
+              <div className="mx-auto w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 flex items-center justify-center shadow-lg shadow-amber-500/5 animate-pulse">
+                <AlertTriangle size={32} />
+              </div>
+
+              {/* Title & Subtitle */}
+              <div className="space-y-1">
+                <span className="text-[9px] uppercase font-bold tracking-widest text-primary block">
+                  {t.internship.disclaimerSubtitle}
+                </span>
+                <h2 className="text-2xl font-display font-black tracking-tight text-foreground/90">
+                  {t.internship.disclaimerTitle}
+                </h2>
+              </div>
+
+              {/* Text Description */}
+              <p className="text-xs text-foreground/60 leading-relaxed font-medium text-center">
+                {t.internship.disclaimerText}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/5">
+                <button
+                  onClick={() => router.push("/#about")}
+                  className="flex-1 glass hover:bg-white/10 text-white py-3.5 px-6 rounded-2xl font-bold text-xs transition-all border border-white/10 cursor-pointer"
+                >
+                  {t.internship.back}
+                </button>
+                <button
+                  onClick={() => setHasAccepted(true)}
+                  className="flex-1 bg-primary hover:bg-primary/95 text-white py-3.5 px-6 rounded-2xl font-bold text-xs transition-all cursor-pointer shadow-lg shadow-primary/25 hover:shadow-primary/45 flex items-center justify-center gap-1.5"
+                >
+                  {t.internship.disclaimerAgree}
+                </button>
+              </div>
+
+              {/* Neon edge decor */}
+              <div className="absolute -inset-px bg-gradient-to-r from-primary/10 via-secondary/10 to-transparent opacity-30 blur-md -z-10" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

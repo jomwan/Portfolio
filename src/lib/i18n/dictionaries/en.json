@@ -30,8 +30,8 @@
   "about": {
     "section": "01 — Biography",
     "title": "I design architectures that bridge <span class=\"gradient-text\">data</span> and decisions.",
-    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand. I specialize in Database Design, Data Engineering, and Data Analytics, with a strong foundation in building interactive analytical interfaces, distributed storage systems, and advanced data simulations. I am currently seeking an internship to apply my data expertise to real-world engineering challenges.",
-    "desc2": "My academic projects—ranging from designing optimized relational database models to simulating complex viral agent interactions—have shaped my technical philosophy: turning raw data into structured pipelines and actionable insights.",
+    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand, holding a Cumulative GPA of 3.56 (highlighted by a perfect 4.00 GPA in my most recent semester). I specialize in Database Design, Data Engineering, and Data Analytics, with a strong foundation in building interactive analytical interfaces, distributed storage systems, and advanced data simulations. I am currently seeking an internship to apply my data expertise to real-world engineering challenges.",
+    "desc2": "My strong academic foundation is highlighted by straight 'A's in core courses like Data Science, Big Data Analytics, and Mobile Applications Implementation. Combined with projects ranging from optimizing relational database models to simulating complex viral agent interactions, this coursework has shaped my technical philosophy: turning raw data into structured pipelines and actionable insights.",
     "quote": "\"Simplicity is the soul of efficiency.\"",
     "currentFocus": "Current Focus",
     "focusDesc": "Designing robust database architectures & scalable data pipelines.",
@@ -247,7 +247,7 @@
         "school": "Rangsit University International College",
         "location": "Pathum Thani, Thailand",
         "period": "2023 — Present",
-        "desc": "Pursuing a major in Information and Communication Technology (ICT) under the International College. Coursework covers Web Systems Programming, Software Engineering, Database Systems, and Network Administration."
+        "desc": "Pursuing a major in Information and Communication Technology (ICT) with a Cumulative GPA of 3.56 (highlighted by a perfect 4.00 GPA in the final semester). Core coursework covers Data Science, Big Data Analytics, Machine Learning, Data Structures & Algorithms, and Mobile Applications Implementation."
       },
       {
         "degree": "Certified Data Specialist",
@@ -283,6 +283,7 @@
     "disclaimerTitle": "Placement Simulation Active",
     "disclaimerSubtitle": "Proactive Engineering Logbook Structure",
     "disclaimerText": "All placement telemetry, logging timelines, and weekly project milestones rendered on this page are simulated models designed to demonstrate engineering logbook structure, reporting capability, and proactive documentation readiness. Real-time updates will activate once my official engineering placement is finalized. If you are a recruiter, feel free to connect!",
+    "disclaimerAgree": "Acknowledge & Enter Logbook",
     "overview": "Internship Overview",
     "overviewDesc": "A hands-on engineering experience focused on deploying robust software systems, optimizing spatial memory pipelines, and scaling microservices.",
     "weeksTitle": "Weekly Progress & Logbooks",

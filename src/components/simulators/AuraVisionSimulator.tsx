@@ -330,7 +330,7 @@ export default function AuraVisionSimulator() {
     <div className="w-full min-h-full lg:h-full flex flex-col lg:flex-row bg-background text-foreground text-sm overflow-y-auto lg:overflow-hidden select-none">
       
       {/* 1. Left Section: Spatial Perception Camera Sandbox */}
-      <div className="flex-grow flex flex-col p-4 sm:p-6 lg:p-8 space-y-6 lg:overflow-y-auto shrink-0 lg:h-full lg:min-h-0">
+      <div className="flex-grow flex flex-col p-4 sm:p-6 lg:p-8 space-y-6 lg:overflow-y-auto lg:h-full lg:min-h-0 min-w-0">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-display font-bold text-foreground flex items-center gap-2">
@@ -442,10 +442,10 @@ export default function AuraVisionSimulator() {
         </div>
 
         {/* 2. Middle Section: ChromaDB Memory Console & RAG Playground */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 flex-grow min-h-0">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 flex-grow min-h-0">
           
           {/* Presets and Custom query (8 cols) */}
-          <div className="md:col-span-7 flex flex-col space-y-4">
+          <div className="xl:col-span-7 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
               <Database size={16} className="text-primary" />
               <h3 className="font-bold text-foreground">Alice AI (RAGsurrounds) Sandbox</h3>
@@ -540,7 +540,7 @@ export default function AuraVisionSimulator() {
           </div>
 
           {/* ChromaDB Vector Retrieval Feed (5 cols) */}
-          <div className="md:col-span-5 flex flex-col space-y-4">
+          <div className="xl:col-span-5 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
               <Database size={16} className="text-secondary" />
               <h3 className="font-bold text-foreground">Vector Retrieval Match (ChromaDB)</h3>
