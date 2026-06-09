@@ -85,6 +85,7 @@ export default function ProjectPage() {
       case "hdfs":
         return <HDFSSimulator />;
       case "fraud":
+      case "databricks-fraud":
         return <FraudSimulator />;
       default:
         return (
