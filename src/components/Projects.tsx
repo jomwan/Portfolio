@@ -17,6 +17,7 @@ const getIconUrl = (slug: string) => {
     case "matplotlib": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg";
     case "spark": return "https://api.iconify.design/logos:apache-spark.svg";
     case "huggingface": return "https://api.iconify.design/logos:hugging-face-icon.svg";
+    case "databricks": return "https://cdn.simpleicons.org/databricks/FF3621";
     default: return `https://skillicons.dev/icons?i=${slug}`;
   }
 };
@@ -182,6 +183,38 @@ export const projects: Project[] = [
       }
     ]
   },
+  {
+    id: "databricks-fraud",
+    title: "Databricks-Fraud: Distributed Transaction Anomaly Pipeline",
+    desc: "A cloud-native, distributed fraud detection system engineered on Databricks. Implements a Medallion Lakehouse architecture using Spark Structured Streaming and Delta Lake, featuring automated model tracking and lifecycle management through MLflow.",
+    tech: ["Databricks", "Apache Spark", "Delta Lake", "MLflow", "PySpark", "Machine Learning"],
+    icons: ["py", "spark", "databricks", "git"],
+    live: "https://github.com/jomwan/databrick-fraud-detection",
+    github: "https://github.com/jomwan/databrick-fraud-detection",
+    image: "/projects/databricks_preview.png",
+    metric: "Databricks Medallion Hub",
+    metrics: [
+      { label: "Infrastructure", value: "Databricks Cloud" },
+      { label: "Storage Layout", value: "Delta Lake (Medallion)" },
+      { label: "ML Lifecycle", value: "MLflow Registry" },
+      { label: "Engine", value: "PySpark Streaming" }
+    ],
+    icon: <ShieldCheck size={20} />,
+    featured: false,
+    tags: ["Cloud Data Lake", "Data Engineering", "Machine Learning"],
+    architecture: [
+      {
+        title: "Medallion Lakehouse Structure",
+        desc: "Ingests raw JSON transactions into Bronze Delta tables, runs validations and joins to form Silver cleaned tables, and aggregates fraud KPI dimensions into Gold analytics tables.",
+        type: "pipeline"
+      },
+      {
+        title: "Distributed MLflow Pipeline",
+        desc: "Uses PySpark for parallel feature preprocessing and model training, logging metrics and registering the champion model inside the Databricks MLflow workspace.",
+        type: "model"
+      }
+    ]
+  }
 ];
 
 export default function Projects() {

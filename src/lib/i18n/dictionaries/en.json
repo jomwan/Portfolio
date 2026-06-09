@@ -214,6 +214,37 @@
           "Autoencoder reconstruction models: Train unsupervised PyTorch Autoencoders to score transaction risk based on feature reconstruction error spikes.",
           "Active human feedback loops: Build transaction alert simulation loops, automatically retraining ML weights when users confirm suspicious alerts."
         ]
+      },
+      {
+        "title": "Databricks-Fraud: Distributed Transaction Anomaly Pipeline",
+        "desc": "A cloud-native, distributed fraud detection system engineered on Databricks. Implements a Medallion Lakehouse architecture using Spark Structured Streaming and Delta Lake, featuring automated model tracking and lifecycle management through MLflow.",
+        "techDeepDive": [
+          {
+            "tech": "Databricks & PySpark",
+            "how": "Processes parallel batch files and high-velocity transactional streams using Spark Structured Streaming directly on auto-scaling clusters.",
+            "why": "Ensures horizontal scaling capability for multi-million row datasets, reducing end-to-end data transformation latency to seconds."
+          },
+          {
+            "tech": "Delta Lake (Medallion)",
+            "how": "Establishes a three-tier ACID-compliant data lake: Bronze (raw ingestion logs), Silver (schema-validated tables with engineered features), and Gold (fraud KPI reporting metrics).",
+            "why": "Guarantees absolute schema enforcement, time-travel history auditing, and reliable transactional read/write consistency."
+          },
+          {
+            "tech": "MLflow Registry",
+            "how": "Automatically tracks hyperparameter runs, logs model artifacts, registers candidate models, and handles stage transitions (Staging, Production) within Databricks.",
+            "why": "Provides complete model governance, reproducibility, and a clear audit trail for compliance in financial classification systems."
+          },
+          {
+            "tech": "Scikit-Learn & XGBoost",
+            "how": "Trains ensemble classification models (XGBoost, Random Forest) on distributed features, optimizing hyperparameters via Spark MLlib tuning loops.",
+            "why": "Achieves high precision and recall on imbalanced transaction logs, capturing complex non-linear fraud signatures."
+          }
+        ],
+        "roadmap": [
+          "Databricks Workflows Orchestration: Automate daily retraining runs and data validation stages using native Databricks workflows and alerts.",
+          "Real-time Model Serving: Deploy registered champion models directly onto Databricks serverless real-time endpoints for sub-50ms REST API inferences.",
+          "Unity Catalog Integration: Enforce cell-level security policies and column-level lineage tracking over the entire Medallion pipeline."
+        ]
       }
     ],
     "disclaimer": {
