@@ -304,47 +304,369 @@
     "footer": "Designed with ❤️ and Jom"
   },
   "internship": {
+    "tag": "06 — Engineering Journals",
     "title": "Internship & <span class=\"gradient-text\">Co-op Journal</span>",
-    "subtitle": "Engineering logs, system integrations, and weekly performance highlights during my technical internship.",
-    "role": "Software Engineering Intern",
-    "company": "Assistive Vision Technologies",
-    "duration": "June 2026 — Present",
+    "subtitle": "Official engineering logbook, system integrations, and weekly performance reports (RSU Form ICTCE04) for my 4-month industry placement.",
+    "role": "Full-Stack Software Engineering Intern",
+    "company": "HTZKKL TECHNOLOGIES COMPANY LIMITED",
+    "regNumber": "Registration No. 147399782",
+    "university": "Rangsit University International College (RSU IC)",
+    "curriculum": "Form ICTCE04 • Minimum 16 Weeks / 560 Hours",
+    "duration": "September 2, 2026 — Present",
     "location": "Bangkok, Thailand",
     "back": "Back to Home",
-    "disclaimerTitle": "Placement Simulation Active",
-    "disclaimerSubtitle": "Proactive Engineering Logbook Structure",
-    "disclaimerText": "All placement telemetry, logging timelines, and weekly project milestones rendered on this page are simulated models designed to demonstrate engineering logbook structure, reporting capability, and proactive documentation readiness. Real-time updates will activate once my official engineering placement is finalized. If you are a recruiter, feel free to connect!",
-    "disclaimerAgree": "Acknowledge & Enter Logbook",
-    "overview": "Internship Overview",
-    "overviewDesc": "A hands-on engineering experience focused on deploying robust software systems, optimizing spatial memory pipelines, and scaling microservices.",
-    "weeksTitle": "Weekly Progress & Logbooks",
-    "weeksSubtitle": "Detailed technical documentation and weekly updates of tasks, challenges, and solutions.",
-    "upcoming": "Upcoming Logbook",
-    "upcomingDesc": "Logs will unlock sequentially as the internship progresses. Stay tuned for Week 1 engineering notes!",
+    "statusBadge": "Active Co-op Placement",
+    "projectLabel": "Core Enterprise Project",
+    "projectTitle": "Multi-Tenant School Intranet & Academic Management Platform",
+    "overview": "Placement & System Scope",
+    "overviewDesc": "Spearheading full-stack architecture, asynchronous database migrations, dynamic tenant isolation, and automated notification bots for an enterprise Multi-Tenant School Intranet & Academic Management Platform. Progress is officially documented weekly under university co-op standards (Form ICTCE04).",
+    "techStackTitle": "Core Tech Stack",
+    "metrics": {
+      "completedWeeks": "5",
+      "totalWeeks": "16",
+      "accumulatedHours": "200",
+      "targetHours": "560",
+      "progressPercent": "35.7%",
+      "hoursLabel": "Logged Hours",
+      "weeksLabel": "Weeks Completed",
+      "targetLabel": "Co-op Requirement",
+      "paceLabel": "Standard 40h / Week"
+    },
+    "weeksTitle": "Weekly Progress Reports (ICTCE04)",
+    "weeksSubtitle": "Official weekly technical logs documenting features implemented, architecture decisions, and real-world engineering obstacles resolved.",
+    "filterAll": "All Weeks (16)",
+    "filterCompleted": "Completed Logs (Weeks 1–5)",
+    "filterUpcoming": "Upcoming Roadmap",
+    "statusCompleted": "Completed & Verified",
+    "statusInProgress": "Current Active Sprint",
+    "statusUpcoming": "Scheduled Milestone",
+    "viewReport": "Expand Weekly Logbook",
+    "hideReport": "Collapse Logbook",
+    "tasksTitle": "Key Performed Tasks",
+    "conceptsTitle": "Technical Competencies Applied",
+    "problemsTitle": "Problems Encountered & Solutions",
+    "problemLabel": "Obstacle",
+    "solutionLabel": "Engineering Solution",
+    "upcomingNotice": "Scheduled to unlock sequentially as the 16-week internship progresses.",
+    "accreditationModalTitle": "Academic Accreditation & Placement Details",
+    "accreditationModalDesc": "This journal reflects active full-time cooperative education coursework for the Bachelor of Science in Information and Communication Technology at Rangsit University International College.",
+    "closeModal": "Close Details",
     "weeks": [
       {
         "id": "week-1",
-        "title": "Week 1: System Integration & Onboarding",
-        "status": "Upcoming",
-        "date": "June 1 — June 5, 2026",
-        "summary": "Initial server onboarding, continuous integration configurations, and spatial database telemetry analysis.",
-        "details": []
+        "weekNum": 1,
+        "title": "Week 1: Multi-Tenant Architecture v2.0 & Security Hardening",
+        "status": "Completed",
+        "date": "02/09/2026 – 08/09/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "40 Cumulative Hours",
+        "summary": "Local environment setup, tenant-level data isolation, credential sanitization, Parent Portal (/dashboard/my-children), and bulk CSV onboarding with database savepoints.",
+        "tasks": [
+          "Configured local FastAPI + PostgreSQL + Next.js environment and conducted architecture audit of handover documentation.",
+          "Architected Multi-Tenant Engine v2.0 with school-level data isolation and dynamic feature toggles.",
+          "Remediated security issues: eliminated hardcoded bootstrap secrets, deleted debug routes, and centralized JWT decoding helpers.",
+          "Implemented Parent Portal module with parent-student relationship mapping and child overview dashboard.",
+          "Engineered bulk CSV onboarding engine for students and teachers with atomic rollback savepoints (db.begin_nested())."
+        ],
+        "concepts": [
+          "Multi-Tenant Relational Database Architecture",
+          "Row-Level Security & Tenant Scoping",
+          "Stateless JWT Authentication & Secret Hardening",
+          "Atomic Database Savepoints & Ingestion Safety"
+        ],
+        "problems": [
+          {
+            "problem": "Cross-Tenant Data Leakage in Single-Tenant Queries: Initial queries lacked school_id filters, risking unauthorized cross-school record access.",
+            "solution": "Injected mandatory school_id scoping into backend route dependencies (verify_class_access, verify_student_access), returning 404/403 for mismatched tenant access."
+          },
+          {
+            "problem": "Hardcoded Secrets & Duplicate Token Decoding: Discovered fallback credentials in code and four divergent implementations of base64 token parsing.",
+            "solution": "Enforced strict environment variable loading (BOOTSTRAP_ADMIN_PASSWORD) and consolidated client token handling into a single robust decodeTokenPayload() helper."
+          }
+        ]
       },
       {
         "id": "week-2",
-        "title": "Week 2: Memory Pipeline Tuning",
-        "status": "Upcoming",
-        "date": "June 8 — June 12, 2026",
-        "summary": "Optimizing local ChromaDB indexing performance and implementing temporal-spatial similarity search parameters.",
-        "details": []
+        "weekNum": 2,
+        "title": "Week 2: Examinations, School Finance, Automated Webhook Bots & Test Suite",
+        "status": "Completed",
+        "date": "09/09/2026 – 15/09/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "80 Cumulative Hours",
+        "summary": "Exam scheduling & report card generation, multi-line fee invoices & payslips, academic year promotions, Telegram & Viber bot alerts, and 56-test regression suite.",
+        "tasks": [
+          "Built Examinations & Grading module: exam timetables, class mark entry, grade boundaries, and automated report card generator.",
+          "Developed School Finance & Payroll: fee structures, multi-line invoices, payment slip verification, and teacher payslips.",
+          "Implemented Academic Promotions Engine for class-to-class student progression and academic year rollovers.",
+          "Integrated automated messaging bots (Viber Bot & Telegram Bot) via secure webhooks for real-time parent notifications.",
+          "Hardened security with atomic counter tables for race-safe invoice numbering, IDOR checks, magic-byte file validation, and built a 56-test regression suite."
+        ],
+        "concepts": [
+          "Concurrent Database Locking & Race-Safe Document Counters",
+          "OWASP IDOR Mitigation & Magic-Byte File Validation",
+          "Event-Driven Webhook Architectures (Telegram & Viber Bot APIs)",
+          "Automated Test-Driven Development with Pytest & TestClient"
+        ],
+        "problems": [
+          {
+            "problem": "Concurrent Document Number Generation Collisions: Parallel transactions read identical latest invoice numbers, causing duplicate document collisions.",
+            "solution": "Implemented dedicated transactional counter tables with atomic updates and database locks within nested savepoints, guaranteeing strictly contiguous numbering."
+          },
+          {
+            "problem": "Cross-Tenant Information Leakage via Document Lookups (IDOR): Administrators could potentially query invoices or results belonging to other schools.",
+            "solution": "Added strict tenant-scoping checks inside invoice and exam access dependencies, returning 404 Not Found whenever school IDs do not match the authenticated session."
+          }
+        ]
       },
       {
         "id": "week-3",
-        "title": "Week 3: Neural Model Edge Optimization",
+        "weekNum": 3,
+        "title": "Week 3: Dynamic Custom Fields Studio & Granular Staff Governance",
+        "status": "Completed",
+        "date": "16/09/2026 – 22/09/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "120 Cumulative Hours",
+        "summary": "Visual schema builder for custom entity attributes, Alembic JSON storage migrations, registration form slide-overs, UTF-8 BOM CSV exports, and granular staff role bundles.",
+        "tasks": [
+          "Architected and implemented Multi-Entity Dynamic Custom Fields Studio across Students, Teachers, and Parents.",
+          "Executed database schema extensions with Alembic migrations for JSON-based dynamic field storage (e2f3a4b5c6d7, c1d2e3f4a5b6).",
+          "Integrated dynamic custom fields into registration forms, Quick-Peek slide-over drawers, and printable A4 dossiers.",
+          "Engineered dynamic CSV data export engine supporting custom field headers with UTF-8 BOM encoding for Unicode scripts.",
+          "Constructed granular Staff Role Governance (Registrar, HR Officer, Finance Officer, Headmaster) and automated test suite (test_custom_fields.py)."
+        ],
+        "concepts": [
+          "Dynamic JSON Schema Storage in Relational Databases",
+          "Zero-Downtime Alembic Schema Migrations",
+          "Role-Based Access Control (RBAC) & Administrative Delegation",
+          "UTF-8 BOM Stream Processing for Multilingual File Exports"
+        ],
+        "problems": [
+          {
+            "problem": "Schema Sprawl & Performance Degradation from Entity Alterations: Adding ad-hoc entity columns risked database schema bloat and migration overhead.",
+            "solution": "Architected centralized JSON definitions in School.settings paired with a generic custom_fields JSON column on entity tables, allowing limitless dynamic attributes."
+          },
+          {
+            "problem": "Non-ASCII Character Garbling (Mojibake) in CSV Exports: Non-Latin characters in custom field data displayed corrupted text in spreadsheet applications.",
+            "solution": "Injected a UTF-8 Byte Order Mark (\\ufeff) at the head of generated CSV streams, ensuring Microsoft Excel and Google Sheets render Unicode accurately."
+          }
+        ]
+      },
+      {
+        "id": "week-4",
+        "weekNum": 4,
+        "title": "Week 4: Full-Stack Bilingual i18n Engine & Official Printable Dossiers",
+        "status": "Completed",
+        "date": "23/09/2026 – 29/09/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "160 Cumulative Hours (Month 1 Completed)",
+        "summary": "Typed React i18n context (English & Myanmar Unicode), database schema localization (Subject.name_mm), 3-way official printable A4 document mode switchers, and UI typography modernization.",
+        "tasks": [
+          "Designed and integrated full-stack Bilingual Internationalization (i18n) Engine supporting English and Myanmar Unicode with zero-flicker hydration.",
+          "Applied database schema localization via Alembic migrations (a1b2c3d4e5f6) adding Subject.name_mm and User.language_preference.",
+          "Engineered 3-Way Official Document Mode Switchers (Official Myanmar, English, and Side-by-Side Bilingual) for A4 dossiers and payment receipts.",
+          "Built bilingual message template composers for automated Telegram and Viber parent notification bots.",
+          "Modernized entire frontend iconography using lucide-react vector SVG system and developed bilingual test suite (test_i18n_models_and_services.py)."
+        ],
+        "concepts": [
+          "Full-Stack Internationalization (i18n) & Localized Schema Design",
+          "Complex Script Typography & Line-Height Collision Mitigation",
+          "Print Media Stylesheet Architecture (@media print) & Clamped Layouts",
+          "Bilingual Notification Pipelines & Bot Template Formatting"
+        ],
+        "problems": [
+          {
+            "problem": "Text Clipping & Diacritic Collisions with Myanmar Unicode: Default tight line-heights caused stacked diacritics to clip in navigation badges and table cells.",
+            "solution": "Adjusted typography utilities to leading-normal and leading-relaxed on localized text containers and defined custom font metrics in Tailwind."
+          },
+          {
+            "problem": "Layout Bleed in Printable A4 Documents When Switching Languages: Longer localized phrases pushed single-page receipts and dossiers onto unwanted second pages.",
+            "solution": "Implemented compact @media print rules, dynamic font clamp rules, and two-column layouts to ensure official documents strictly fit one standard A4 sheet."
+          }
+        ]
+      },
+      {
+        "id": "week-5",
+        "weekNum": 5,
+        "title": "Week 5: Modern Tooling (uv), Async SQLAlchemy 2.0 & High-Throughput Migration",
+        "status": "Completed",
+        "date": "30/09/2026 – 06/10/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "200 Cumulative Hours",
+        "summary": "Migration to Astral's uv and pyproject.toml, full persistence refactor to Async SQLAlchemy 2.0 with asyncpg, resolving MissingGreenlet lazy-load exceptions, and UTC timezone standardization.",
+        "tasks": [
+          "Migrated backend dependency management to Astral's uv package manager and pyproject.toml with deterministic uv.lock lockfiles.",
+          "Refactored entire persistence layer to Async SQLAlchemy 2.0 with asyncpg (PostgreSQL) and aiosqlite (SQLite).",
+          "Executed asynchronous refactoring across all 16 feature modules (services, routers, authentication guards, and permissions).",
+          "Resolved asynchronous ORM lazy-loading pitfalls (MissingGreenlet) and tuned connection pooling strategy.",
+          "Standardized UTC timezone serialization for asyncpg, eliminated legacy dead code, and upgraded integration tests to httpx.AsyncClient."
+        ],
+        "concepts": [
+          "Astral uv Package Management & PEP 518/621 Standards",
+          "Async SQLAlchemy 2.0 & Non-Blocking Asynchronous I/O",
+          "Eager Loading Strategies (selectinload, joinedload) to prevent Greenlet errors",
+          "Database Connection Pool Tuning & UTC Timezone Serialization"
+        ],
+        "problems": [
+          {
+            "problem": "MissingGreenlet Exceptions on Relational Attribute Access: In async mode, accessing unloaded relations implicitly caused runtime crashes.",
+            "solution": "Audited all ORM model queries and applied explicit eager loading via selectinload() and joinedload(), converting computed properties into explicit service queries."
+          },
+          {
+            "problem": "asyncpg Timezone-Aware vs. Naive Datetime Rejection: PostgreSQL strictly rejected timezone-naive datetimes during authentication timestamp updates.",
+            "solution": "Standardized all server timestamp generations to explicit UTC timezone-aware objects (datetime.now(timezone.utc)), ensuring seamless cross-database serialization."
+          }
+        ]
+      },
+      {
+        "id": "week-6",
+        "weekNum": 6,
+        "title": "Week 6: Performance Profiling & Query Optimization",
+        "status": "In Progress",
+        "date": "07/10/2026 – 13/10/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "240 Cumulative Hours (Projected)",
+        "summary": "Executing database index benchmarks on PostgreSQL with EXPLAIN ANALYZE and tuning high-concurrency API latency.",
+        "tasks": [
+          "Benchmarking slow relational queries with EXPLAIN ANALYZE on PostgreSQL async connections.",
+          "Refactoring composite indexes across multi-tenant parent-student lookup tables.",
+          "Load testing asynchronous FastAPI endpoints under concurrent user spikes."
+        ],
+        "concepts": [
+          "Database Indexing Optimization & Query Plans",
+          "High-Concurrency Performance Profiling",
+          "Connection Pool Stress Testing"
+        ],
+        "problems": []
+      },
+      {
+        "id": "week-7",
+        "weekNum": 7,
+        "title": "Week 7: Real-Time Attendance & Automated Parent Notification Dispatchers",
         "status": "Upcoming",
-        "date": "June 15 — June 19, 2026",
-        "summary": "Quantizing segmentation weights and porting local models via ONNX Runtime for low-latency Edge environments.",
-        "details": []
+        "date": "14/10/2026 – 20/10/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "280 Cumulative Hours",
+        "summary": "Classroom attendance roll-call with automated instant alert dispatch to parents via Telegram and Viber.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-8",
+        "weekNum": 8,
+        "title": "Week 8: Financial Analytics & Comprehensive Ledger Reconciliation",
+        "status": "Upcoming",
+        "date": "21/10/2026 – 27/10/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "320 Cumulative Hours (Month 2 Completed)",
+        "summary": "Revenue dashboards, outstanding tuition fee tracking, and automated double-entry ledger reconciliation.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-9",
+        "weekNum": 9,
+        "title": "Week 9: Asynchronous Background Task Queue (Redis & Workers)",
+        "status": "Upcoming",
+        "date": "28/10/2026 – 03/11/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "360 Cumulative Hours",
+        "summary": "Decoupling heavy tasks (PDF generation, bulk SMS/message alerts, CSV imports) to worker queues.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-10",
+        "weekNum": 10,
+        "title": "Week 10: Multi-Tenant Asset CDN & Media Storage Optimization",
+        "status": "Upcoming",
+        "date": "04/11/2026 – 10/11/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "400 Cumulative Hours",
+        "summary": "Signed URLs, image compression, student photo pipelines, and cloud object storage integration.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-11",
+        "weekNum": 11,
+        "title": "Week 11: Enterprise Audit Logging & Sensitive Data Redaction",
+        "status": "Upcoming",
+        "date": "11/11/2026 – 17/11/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "440 Cumulative Hours",
+        "summary": "Tamper-evident system activity audit trails, IP tracking, and PII masking for compliant record management.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-12",
+        "weekNum": 12,
+        "title": "Week 12: Production Staging & Containerized Deployment (Docker)",
+        "status": "Upcoming",
+        "date": "18/11/2026 – 24/11/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "480 Cumulative Hours (Month 3 Completed)",
+        "summary": "Docker Compose orchestration, multi-stage production builds, Nginx reverse proxy, and SSL automation.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-13",
+        "weekNum": 13,
+        "title": "Week 13: User Acceptance Testing (UAT) & Administrative Feedback Loops",
+        "status": "Upcoming",
+        "date": "25/11/2026 – 01/12/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "520 Cumulative Hours",
+        "summary": "Pilot testing with school administrators and teachers; gathering feedback and refining workflows.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-14",
+        "weekNum": 14,
+        "title": "Week 14: Disaster Recovery, Database Snapshots & High Availability",
+        "status": "Upcoming",
+        "date": "02/12/2026 – 08/12/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "560 Cumulative Hours (Minimum Co-op Target Reached)",
+        "summary": "Automated WAL archiving, offsite backup replication, failover testing, and data integrity verification.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-15",
+        "weekNum": 15,
+        "title": "Week 15: Final Performance Hardening & End-to-End Regression Auditing",
+        "status": "Upcoming",
+        "date": "09/12/2026 – 15/12/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "600 Cumulative Hours",
+        "summary": "Stress testing under production datasets, end-to-end Cypress/Playwright regression audits, and final polish.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
+      },
+      {
+        "id": "week-16",
+        "weekNum": 16,
+        "title": "Week 16: Comprehensive Handover, Final Documentation & University Defense",
+        "status": "Upcoming",
+        "date": "16/12/2026 – 22/12/2026",
+        "hours": "40 Hours",
+        "cumulativeHours": "640 Cumulative Hours (Co-op Completed)",
+        "summary": "Comprehensive architectural documentation handover, RSU final co-op presentation defense, and project sign-off.",
+        "tasks": [],
+        "concepts": [],
+        "problems": []
       }
     ]
   }
