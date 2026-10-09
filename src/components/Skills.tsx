@@ -20,18 +20,19 @@ const skillsRow1 = [
 
 const skillsRow2 = [
   { name: "Python", icon: "https://skillicons.dev/icons?i=py" },
-  { name: "Node.js", icon: "https://skillicons.dev/icons?i=nodejs" },
+  { name: "PostgreSQL", icon: "https://skillicons.dev/icons?i=postgres" },
+  { name: "SQLAlchemy", icon: "https://cdn.simpleicons.org/sqlalchemy/D71F00" },
   { name: "MySQL", icon: "https://skillicons.dev/icons?i=mysql" },
   { name: "SQLite", icon: "https://skillicons.dev/icons?i=sqlite" },
+  { name: "Node.js", icon: "https://skillicons.dev/icons?i=nodejs" },
   { name: "PyTorch", icon: "https://skillicons.dev/icons?i=pytorch" },
   { name: "Apache Kafka", icon: "https://skillicons.dev/icons?i=kafka" },
   { name: "TailwindCSS", icon: "https://skillicons.dev/icons?i=tailwind" },
   { name: "Pandas", icon: "https://skillicons.dev/icons?i=pandas" },
-  { name: "Firebase", icon: "https://skillicons.dev/icons?i=firebase" },
-  { name: "Markdown", icon: "https://skillicons.dev/icons?i=markdown" },
 ];
 
 const skillsRow3 = [
+  { name: "FastAPI", icon: "https://cdn.simpleicons.org/fastapi/009688" },
   { name: "Scikit-Learn", icon: "https://cdn.simpleicons.org/scikitlearn/F99923" },
   { name: "Apache Hadoop", icon: "https://cdn.simpleicons.org/apachehadoop/CC8A00" },
   { name: "ChromaDB", icon: "https://api.iconify.design/lucide:database-backup.svg?color=%23FF7043" },
@@ -40,7 +41,6 @@ const skillsRow3 = [
   { name: "Solara", icon: "https://api.iconify.design/lucide:sun.svg?color=%23FFB800" },
   { name: "Apache Spark", icon: "https://cdn.simpleicons.org/apachespark/E25A1C" },
   { name: "NetworkX", icon: "https://api.iconify.design/lucide:network.svg?color=%2342A5F5" },
-  { name: "FastAPI", icon: "https://cdn.simpleicons.org/fastapi/009688" },
   { name: "Jupyter", icon: "https://cdn.simpleicons.org/jupyter/F37626" },
 ];
 
@@ -89,7 +89,7 @@ export default function Skills() {
       title: t.skills.cards[0]?.label || "Data Engineering & Analytics",
       desc: t.skills.cards[0]?.desc || "Designing data pipelines, processing datasets, and modeling analytical databases.",
       icon: BarChart3,
-      skills: ["Apache Spark", "Apache Kafka", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI"],
+      skills: ["Apache Spark", "Apache Kafka", "SQL", "Pandas", "ETL Pipelines", "Python", "FastAPI", "Astral uv"],
       color: "text-purple-400",
       bg: "bg-purple-500/5",
       span: "md:col-span-8",
@@ -107,7 +107,7 @@ export default function Skills() {
       title: t.skills.cards[2]?.label || "Databases & Storage",
       desc: t.skills.cards[2]?.desc || "Robust relational databases and distributed storage solutions.",
       icon: Database,
-      skills: ["MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "MongoDB", "Docker", "Firebase"],
+      skills: ["PostgreSQL", "Async SQLAlchemy 2.0", "MySQL", "SQLite", "Hadoop/HDFS", "ChromaDB", "Docker"],
       color: "text-emerald-400",
       bg: "bg-emerald-500/5",
       span: "md:col-span-4",

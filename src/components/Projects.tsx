@@ -24,6 +24,38 @@ const getIconUrl = (slug: string) => {
 
 export const projects: Project[] = [
   {
+    id: "intranet",
+    title: "School Intranet: Multi-Tenant Academic Platform",
+    desc: "An enterprise school management intranet engineered for multi-tenant data isolation, featuring an asynchronous persistence layer with Async SQLAlchemy 2.0 and PostgreSQL (asyncpg), dynamic custom attributes, bilingual i18n support (EN/MM), and automated Telegram & Viber alerts.",
+    tech: ["FastAPI", "Async SQLAlchemy 2.0", "PostgreSQL (asyncpg)", "Next.js", "Astral uv", "Alembic", "Docker", "i18n"],
+    icons: ["py", "fastapi", "postgres", "nextjs", "docker", "git"],
+    live: "/internship",
+    github: "https://github.com/jomwan",
+    image: "/projects/predictive.png",
+    metric: "Multi-Tenant Async Engine",
+    metrics: [
+      { label: "Persistence Layer", value: "Async SQLAlchemy 2.0" },
+      { label: "Database Driver", value: "PostgreSQL (asyncpg)" },
+      { label: "Multi-Tenancy", value: "Row-Level Scoped" },
+      { label: "Dependency Tool", value: "Astral uv" }
+    ],
+    icon: <Database size={20} />,
+    featured: true,
+    tags: ["Enterprise Platform", "Database Systems", "Full-Stack"],
+    architecture: [
+      {
+        title: "Multi-Tenant Isolation & Asyncpg",
+        desc: "Enforces strict school_id row-level tenant boundary scoping across all queries using Async SQLAlchemy 2.0 and non-blocking asyncpg connections.",
+        type: "database"
+      },
+      {
+        title: "Full-Stack Bilingual i18n & Webhooks",
+        desc: "Coordinates English & Myanmar Unicode translations with localized schema fields, automated Telegram/Viber bot webhooks, and A4 printable dossiers.",
+        type: "pipeline"
+      }
+    ]
+  },
+  {
     id: "auravision",
     title: "AuraVision: Advanced Assistive Vision System (SmartAV)",
     desc: "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory.",

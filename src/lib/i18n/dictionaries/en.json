@@ -1,7 +1,7 @@
 {
   "hero": {
     "hello": "Hello, I'm",
-    "available": "Available for Internship & Opportunities",
+    "available": "Software Engineering Intern @ HTZKKL • Open to Opportunities",
     "description": "Information and Communication Technology (ICT) major at Rangsit University International College. Passionate about designing robust database schemas, building scalable data pipelines, and implementing advanced analytical simulations.",
     "explore": "Explore My Work",
     "talk": "Let's Talk",
@@ -30,12 +30,12 @@
   "about": {
     "section": "01 — Biography",
     "title": "I design architectures that bridge <span class=\"gradient-text\">data</span> and decisions.",
-    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand, holding a Cumulative GPA of 3.56 (highlighted by a perfect 4.00 GPA in my most recent semester). I specialize in Database Design, Data Engineering, and Data Analytics, with a strong foundation in building interactive analytical interfaces, distributed storage systems, and advanced data simulations. I am currently seeking an internship to apply my data expertise to real-world engineering challenges.",
+    "desc1": "I am an Information and Communication Technology (ICT) student at Rangsit University International College based in Bangkok, Thailand, holding a Cumulative GPA of 3.56 (highlighted by a perfect 4.00 GPA in my most recent semester). Currently serving as a Software Engineering Intern at HTZKKL Technologies Company Limited, where I architect multi-tenant database schemas, asynchronous backends, and data pipelines. I specialize in Database Design, Data Engineering, and Full-Stack Development.",
     "desc2": "My strong academic foundation is highlighted by straight 'A's in core courses like Data Science, Big Data Analytics, and Mobile Applications Implementation. Combined with projects ranging from optimizing relational database models to simulating complex viral agent interactions, this coursework has shaped my technical philosophy: turning raw data into structured pipelines and actionable insights.",
     "quote": "\"Simplicity is the soul of efficiency.\"",
     "currentFocus": "Current Focus",
-    "focusDesc": "Designing robust database architectures & scalable data pipelines.",
-    "focusPills": ["Database Design", "Data Analytics", "Simulations", "Data Pipelines"],
+    "focusDesc": "Engineering scalable multi-tenant architectures, async pipelines & data systems.",
+    "focusPills": ["Multi-Tenancy", "Database Design", "Async Pipelines", "Data Analytics"],
     "stats": {
       "projects": "Data Projects",
       "models": "Simulation Models",
@@ -60,6 +60,37 @@
       "back": "Return to Case Study"
     },
     "items": [
+      {
+        "title": "School Intranet: Multi-Tenant Academic Platform",
+        "desc": "An enterprise school management intranet engineered for multi-tenant data isolation, featuring an asynchronous persistence layer with Async SQLAlchemy 2.0 and PostgreSQL (asyncpg), dynamic custom attributes, bilingual i18n support (EN/MM), and automated Telegram & Viber alerts.",
+        "techDeepDive": [
+          {
+            "tech": "Async SQLAlchemy 2.0 & asyncpg",
+            "how": "Refactored the persistence layer from synchronous execution to Async SQLAlchemy 2.0 with PostgreSQL (asyncpg), eliminating I/O bottlenecks and applying eager loading via selectinload to prevent MissingGreenlet exceptions.",
+            "why": "Guarantees high-throughput non-blocking operations, scaling connection pools efficiently across concurrent academic requests."
+          },
+          {
+            "tech": "Multi-Tenant Row-Level Isolation",
+            "how": "Injected mandatory school_id scoping into route dependencies and service boundaries to isolate tenant data across students, teachers, grades, and finance.",
+            "why": "Eliminates cross-tenant data leakage risks and IDOR vulnerabilities while keeping a unified, maintainable single-codebase deployment."
+          },
+          {
+            "tech": "Bilingual i18n & Complex Typography",
+            "how": "Designed a typed React i18n context with zero-flicker hydration for English and Myanmar Unicode, paired with localized schema migrations and 3-way official printable A4 dossiers.",
+            "why": "Provides seamless user experience for multilingual school staff, parents, and administrative regulators without layout clipping."
+          },
+          {
+            "tech": "Event-Driven Webhook Bots (Telegram & Viber)",
+            "how": "Engineered asynchronous webhooks with HMAC signature verification to dispatch instant parent alerts for attendance, fee invoices, and exam results.",
+            "why": "Delivers real-time communication directly to mobile messaging channels with automated delivery guarantees."
+          }
+        ],
+        "roadmap": [
+          "Redis background task worker queue for asynchronous PDF dossier rendering and scheduled batch parent broadcasts.",
+          "High-concurrency composite index tuning with automated PostgreSQL EXPLAIN ANALYZE monitoring.",
+          "Docker Compose multi-stage containerization with Nginx reverse proxy and SSL automation."
+        ]
+      },
       {
         "title": "AuraVision: Advanced Assistive Vision System (SmartAV)",
         "desc": "A real-time assistive technology for visually impaired users. Leverages AI-driven Computer Vision (YOLOE-26N-seg, FaceNet) and LlamaIndex RAG over ChromaDB to provide environmental awareness, hazard tracking, and temporal spatial memory.",
@@ -299,7 +330,7 @@
   "contact": {
     "section": "05 — Get In Touch",
     "title": "Let's build something <br /> <span class=\"gradient-text\">extraordinary.</span>",
-    "subtitle": "I'm currently seeking an internship or full-time opportunities in Bangkok, Thailand. If you have any inquiries or want to connect, feel free to reach out!",
+    "subtitle": "Currently interning as a software engineer at HTZKKL Technologies and open to new graduate roles, collaborations, and engineering opportunities in Bangkok, Thailand. Let's connect!",
     "button": "Say Hello",
     "footer": "Designed with ❤️ and Jom"
   },
