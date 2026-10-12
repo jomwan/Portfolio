@@ -25,6 +25,7 @@
     "skills": "Skills",
     "educations": "Educations",
     "internship": "Internship",
+    "activity": "Updates",
     "contact": "Contact"
   },
   "about": {
@@ -327,8 +328,37 @@
       }
     ]
   },
+  "activity": {
+    "section": "05 — Professional Activity",
+    "title": "LinkedIn <span class=\"gradient-text\">Updates & Posts</span>",
+    "subtitle": "Real-time engineering progress, internship milestones (ICTCE04), and technical write-ups directly from my professional network.",
+    "profile": {
+      "headline": "Full-Stack Software Engineering Intern @ HTZKKL TECHNOLOGIES COMPANY LIMITED",
+      "status": "Open to Opportunities",
+      "connect": "Connect on LinkedIn",
+      "viewProfile": "View Profile",
+      "connections": "500+ Connections",
+      "location": "Bangkok, Thailand"
+    },
+    "filterAll": "All Updates",
+    "filterReports": "Internship Reports",
+    "filterProjects": "Project Highlights",
+    "post": {
+      "reactions": "Reactions",
+      "comments": "Comments",
+      "reposts": "Reposts",
+      "like": "Like",
+      "liked": "Liked",
+      "comment": "Comment",
+      "repost": "Repost",
+      "send": "Share",
+      "viewOnLinkedin": "View on LinkedIn",
+      "readMore": "Read more",
+      "showLess": "Show less"
+    }
+  },
   "contact": {
-    "section": "05 — Get In Touch",
+    "section": "06 — Get In Touch",
     "title": "Let's build something <br /> <span class=\"gradient-text\">extraordinary.</span>",
     "subtitle": "Currently interning as a software engineer at HTZKKL Technologies and open to new graduate roles, collaborations, and engineering opportunities in Bangkok, Thailand. Let's connect!",
     "button": "Say Hello",

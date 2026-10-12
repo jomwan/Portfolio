@@ -25,6 +25,7 @@
     "skills": "ทักษะ",
     "educations": "การศึกษา",
     "internship": "ฝึกงาน",
+    "activity": "อัปเดต",
     "contact": "ติดต่อ"
   },
   "about": {
@@ -327,8 +328,37 @@
       }
     ]
   },
+  "activity": {
+    "section": "05 — กิจกรรมวิชาชีพ",
+    "title": "โพสต์และอัปเดตบน <span class=\"gradient-text\">LinkedIn</span>",
+    "subtitle": "ความคืบหน้าทางวิศวกรรมแบบเรียลไทม์ หมุดหมายการฝึกงาน (ICTCE04) และบทความทางเทคนิคโดยตรงจากเครือข่ายวิชาชีพของผม",
+    "profile": {
+      "headline": "วิศวกรซอฟต์แวร์ฟูลสแตกฝึกงาน @ HTZKKL TECHNOLOGIES COMPANY LIMITED",
+      "status": "พร้อมรับโอกาสใหม่ๆ",
+      "connect": "เชื่อมต่อบน LinkedIn",
+      "viewProfile": "ดูโปรไฟล์",
+      "connections": "500+ การเชื่อมต่อ",
+      "location": "กรุงเทพมหานคร, ประเทศไทย"
+    },
+    "filterAll": "อัปเดตทั้งหมด",
+    "filterReports": "รายงานการฝึกงาน",
+    "filterProjects": "ไฮไลต์โปรเจกต์",
+    "post": {
+      "reactions": "ความรู้สึก",
+      "comments": "ความคิดเห็น",
+      "reposts": "รีโพสต์",
+      "like": "ถูกใจ",
+      "liked": "ถูกใจแล้ว",
+      "comment": "แสดงความคิดเห็น",
+      "repost": "รีโพสต์",
+      "send": "แชร์",
+      "viewOnLinkedin": "ดูบน LinkedIn",
+      "readMore": "อ่านเพิ่มเติม",
+      "showLess": "ย่อข้อความ"
+    }
+  },
   "contact": {
-    "section": "05 — ติดต่อเรา",
+    "section": "06 — ติดต่อเรา",
     "title": "มาร่วมกันสร้างสรรค์สิ่ง <br /> <span class=\"gradient-text\">ที่พิเศษสุดกันเถอะ</span>",
     "subtitle": "ปัจจุบันฝึกงานในตำแหน่งวิศวกรซอฟต์แวร์ที่ HTZKKL Technologies และเปิดรับโอกาสร่วมงาน โครงการใหม่ๆ หรือตำแหน่งงานเต็มเวลาในกรุงเทพฯ ติดต่อมาได้เลยครับ!",
     "button": "ทักทายผม",

@@ -27,6 +27,7 @@ export default function Navbar() {
       { name: t.navbar.skills, href: isHome ? "#skills" : "/#skills", id: "skills" },
       { name: t.navbar.educations, href: isHome ? "#educations" : "/#educations", id: "educations" },
       { name: t.navbar.internship, href: "/internship", id: "internship" },
+      { name: t.navbar.activity, href: isHome ? "#activity" : "/#activity", id: "activity" },
       { name: t.navbar.contact, href: isHome ? "#contact" : "/#contact", id: "contact" },
     ];
   }, [t, pathname]);

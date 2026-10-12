@@ -23,6 +23,7 @@ import {
   Info,
   Check,
   AlertCircle,
+  ExternalLink,
   Hash
 } from "lucide-react";
 
@@ -86,13 +87,25 @@ export default function InternshipPage() {
             {t.internship.back}
           </button>
 
-          <button
-            onClick={() => setShowAccreditationModal(true)}
-            className="hidden sm:flex items-center gap-2 text-[11px] font-semibold text-foreground/50 hover:text-foreground/80 glass px-3.5 py-1.5 rounded-full border border-white/5 transition-all hover:border-primary/20"
-          >
-            <ShieldCheck size={14} className="text-emerald-400" />
-            <span>RSU ICTCE04 Accredited</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 text-[11px] font-semibold text-[#0a66c2] hover:text-white glass px-3.5 py-1.5 rounded-full border border-[#0a66c2]/30 hover:bg-[#0a66c2] transition-all cursor-pointer"
+            >
+              <ExternalLink size={12} />
+              <span>LinkedIn Activity</span>
+            </a>
+
+            <button
+              onClick={() => setShowAccreditationModal(true)}
+              className="hidden sm:flex items-center gap-2 text-[11px] font-semibold text-foreground/50 hover:text-foreground/80 glass px-3.5 py-1.5 rounded-full border border-white/5 transition-all hover:border-primary/20"
+            >
+              <ShieldCheck size={14} className="text-emerald-400" />
+              <span>RSU ICTCE04 Accredited</span>
+            </button>
+          </div>
         </motion.div>
 
         {/* Title & Active Placement Banner */}
@@ -562,7 +575,20 @@ export default function InternshipPage() {
                             {/* Form Reference Verification Tag */}
                             <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-wrap items-center justify-between gap-2 text-[10px] text-foreground/40 font-mono">
                               <span>Form: ICTCE04 (RSU International College)</span>
-                              <span className="text-emerald-400 font-bold">● Status: Official Verified</span>
+                              <div className="flex items-center gap-3">
+                                {week.weekNum <= 5 && (
+                                  <a
+                                    href={`/reports/ICTCE04%20Week-${week.weekNum}%20Progress%20Report_Sai%20Swam%20Wan%20Hline.pdf`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary hover:underline flex items-center gap-1 font-bold"
+                                  >
+                                    <FileText size={11} />
+                                    <span>Download ICTCE04 PDF</span>
+                                  </a>
+                                )}
+                                <span className="text-emerald-400 font-bold">● Status: Official Verified</span>
+                              </div>
                             </div>
                           </motion.div>
                         )}
