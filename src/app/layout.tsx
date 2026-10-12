@@ -6,6 +6,7 @@ import NeuralBackground from "@/components/NeuralBackground";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { AppProvider } from "@/context/AppContext";
+import LinkedInBannerWidget from "@/components/LinkedInBannerWidget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,6 +77,7 @@ export default function RootLayout({
               <CustomCursor />
               <div className="noise" />
               {children}
+              <LinkedInBannerWidget />
             </LanguageProvider>
           </AppProvider>
         </ThemeProvider>

@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Educations from "@/components/Educations";
 import Skills from "@/components/Skills";
-import LinkedInFeed from "@/components/LinkedInFeed";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <Projects />
       <Skills />
       <Educations />
-      <LinkedInFeed />
       <Contact />
     </main>
   );

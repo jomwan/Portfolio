@@ -89,7 +89,7 @@ export default function InternshipPage() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/"
+              href="https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-1.5 text-[11px] font-semibold text-[#0a66c2] hover:text-white glass px-3.5 py-1.5 rounded-full border border-[#0a66c2]/30 hover:bg-[#0a66c2] transition-all cursor-pointer"

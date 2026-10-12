@@ -106,13 +106,13 @@ export interface SocialLink {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { icon: GithubIcon as any, label: "GitHub", href: "https://github.com/jomwan" },
-  { icon: LinkedinIcon as any, label: "LinkedIn", href: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/" },
+  { icon: LinkedinIcon as any, label: "LinkedIn", href: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/" },
   { icon: Mail, label: "Email", href: "mailto:saiswamwan.h66@rsu.ac.th" },
 ];
 
 export const SOCIAL_LINKS_FULL: SocialLink[] = [
   { icon: GithubIcon as any, label: "GitHub", href: "https://github.com/jomwan" },
-  { icon: LinkedinIcon as any, label: "LinkedIn", href: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/" },
+  { icon: LinkedinIcon as any, label: "LinkedIn", href: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/" },
   { icon: LineIcon as any, label: "Line ID", href: "https://line.me/ti/p/~saiswamwanhline" },
   { icon: FacebookIcon as any, label: "Facebook", href: "https://www.facebook.com/jomwan02" },
   { icon: InstagramIcon as any, label: "Instagram", href: "https://www.instagram.com/jom_wan02" },

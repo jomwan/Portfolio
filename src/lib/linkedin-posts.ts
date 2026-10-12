@@ -27,7 +27,7 @@ export const LINKEDIN_PROFILE = {
   headline: "Full-Stack Software Engineering Intern @ HTZKKL TECHNOLOGIES COMPANY LIMITED | ICT @ Rangsit University International College",
   location: "Bangkok, Thailand",
   connections: "500+",
-  profileUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/",
+  profileUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/",
   avatar: "/images/profile.jpg",
   coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
 };
@@ -74,7 +74,7 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
       comments: 14,
       reposts: 5,
     },
-    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/",
+    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/",
     projectLink: "/internship",
     projectLinkLabel: "View Official ICTCE04 Report Card"
   },
@@ -112,7 +112,7 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
       comments: 9,
       reposts: 3,
     },
-    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/",
+    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/",
     projectLink: "/internship",
     projectLinkLabel: "Explore Week 4 Engineering Log"
   },
@@ -150,7 +150,7 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
       comments: 18,
       reposts: 8,
     },
-    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-7a72b4406/",
+    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/",
     projectLink: "/projects/databricks-fraud",
     projectLinkLabel: "Explore Case Study & Interactive Demo"
   }
