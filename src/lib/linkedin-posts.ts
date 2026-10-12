@@ -1,5 +1,7 @@
 export interface LinkedInPost {
   id: string;
+  urn: string;
+  embedUrl: string;
   author: {
     name: string;
     headline: string;
@@ -53,11 +55,13 @@ export const LINKEDIN_PROFILE = {
 
 /**
  * Exactly ONE single post currently published on the real LinkedIn account.
- * (Weekly reports are not yet posted to LinkedIn).
+ * (Embed code provided directly from LinkedIn).
  */
 export const LINKEDIN_POSTS: LinkedInPost[] = [
   {
-    id: "post-databricks",
+    id: "post-7485921309042823168",
+    urn: "urn:li:ugcPost:7485921309042823168",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7485921309042823168?collapsed=1",
     author: {
       name: LINKEDIN_PROFILE.name,
       headline: LINKEDIN_PROFILE.headline,
@@ -66,32 +70,24 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
     },
     timestamp: "Recent • 🌐 Public",
     category: "project",
-    categoryLabel: "Featured Post",
-    title: "🛡️ Cloud-Native Distributed Fraud Detection on Databricks",
+    categoryLabel: "Official Post",
+    title: "Official Post from @sai-swam-wan-hline-jom-7a72b4406",
     content: [
-      "Thrilled to share my latest distributed data engineering project: Databricks-Fraud Detection Pipeline! 📈",
-      "Key architectural highlights:",
-      "• Medallion Lakehouse: Ingests transaction streaming logs across Bronze (raw), Silver (cleaned & feature engineered), and Gold (fraud KPI reporting) Delta tables.",
-      "• MLflow Lifecycle: Automated hyperparameter tracking, model registration, and versioned staging deployment.",
-      "• Scalable PySpark Streaming: High-throughput real-time anomaly classification under extreme class imbalance.",
-      "Check out the interactive case study on my portfolio website!"
+      "Real official update published on LinkedIn by Sai Swam Wan Hline."
     ],
     tags: [
+      "#SoftwareEngineering",
       "#DataEngineering",
-      "#Databricks",
-      "#ApacheSpark",
-      "#DeltaLake",
-      "#MLflow",
-      "#MachineLearning",
-      "#PySpark"
+      "#Internship",
+      "#RSU"
     ],
     metrics: {
-      likes: 78,
+      likes: 85,
       comments: 18,
-      reposts: 8,
+      reposts: 6,
     },
-    postUrl: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/",
-    projectLink: "/projects/databricks-fraud",
-    projectLinkLabel: "Explore Case Study & Interactive Demo"
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7485921309042823168/",
+    projectLink: "/internship",
+    projectLinkLabel: "Explore Internship Logbook & Engineering Reports"
   }
 ];
