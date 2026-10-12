@@ -26,6 +26,7 @@ export default function Navbar() {
       { name: t.navbar.projects, href: isHome ? "#projects" : "/#projects", id: "projects" },
       { name: t.navbar.skills, href: isHome ? "#skills" : "/#skills", id: "skills" },
       { name: t.navbar.educations, href: isHome ? "#educations" : "/#educations", id: "educations" },
+      { name: t.navbar.activity, href: isHome ? "#activity" : "/#activity", id: "activity" },
       { name: t.navbar.internship, href: "/internship", id: "internship" },
       { name: t.navbar.contact, href: isHome ? "#contact" : "/#contact", id: "contact" },
     ];
