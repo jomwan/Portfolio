@@ -32,7 +32,7 @@ export default function InternshipPage() {
   const { t } = useLanguage();
   
   // State management
-  const [expandedWeek, setExpandedWeek] = useState<string | null>("week-5");
+  const [expandedWeek, setExpandedWeek] = useState<string | null>("week-6");
   const [filter, setFilter] = useState<"all" | "completed" | "upcoming">("all");
   const [showAccreditationModal, setShowAccreditationModal] = useState(false);
 
@@ -173,7 +173,7 @@ export default function InternshipPage() {
             <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden p-0.5 border border-white/5 relative mb-5">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: "35.7%" }}
+                animate={{ width: t.internship.metrics.progressPercent }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
                 className="h-full bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 rounded-full relative"
               >
@@ -576,7 +576,7 @@ export default function InternshipPage() {
                             <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-wrap items-center justify-between gap-2 text-[10px] text-foreground/40 font-mono">
                               <span>Form: ICTCE04 (RSU International College)</span>
                               <div className="flex items-center gap-3">
-                                {week.weekNum <= 5 && (
+                                {week.weekNum <= 6 && (
                                   <a
                                     href={`/reports/ICTCE04%20Week-${week.weekNum}%20Progress%20Report_Sai%20Swam%20Wan%20Hline.pdf`}
                                     target="_blank"
@@ -653,7 +653,7 @@ export default function InternshipPage() {
                   <div>• <strong>Program:</strong> B.Sc. in ICT (Information & Communication Technology)</div>
                   <div>• <strong>Employer:</strong> HTZKKL TECHNOLOGIES COMPANY LIMITED (Reg: 147399782)</div>
                   <div>• <strong>Requirement:</strong> Minimum 16 Weeks or 560 Cumulative Hours</div>
-                  <div>• <strong>Progress:</strong> 5 Weeks Completed (200 / 560 Hours logged)</div>
+                  <div>• <strong>Progress:</strong> 6 Weeks Completed (240 / 560 Hours logged)</div>
                 </div>
               </div>
 

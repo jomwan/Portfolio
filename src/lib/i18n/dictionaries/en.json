@@ -383,11 +383,11 @@
     "overviewDesc": "Spearheading full-stack architecture, asynchronous database migrations, dynamic tenant isolation, and automated notification bots for an enterprise Multi-Tenant School Intranet & Academic Management Platform. Progress is officially documented weekly under university co-op standards (Form ICTCE04).",
     "techStackTitle": "Core Tech Stack",
     "metrics": {
-      "completedWeeks": "5",
+      "completedWeeks": "6",
       "totalWeeks": "16",
-      "accumulatedHours": "200",
+      "accumulatedHours": "240",
       "targetHours": "560",
-      "progressPercent": "35.7%",
+      "progressPercent": "42.9%",
       "hoursLabel": "Logged Hours",
       "weeksLabel": "Weeks Completed",
       "targetLabel": "Co-op Requirement",
@@ -396,7 +396,7 @@
     "weeksTitle": "Weekly Progress Reports (ICTCE04)",
     "weeksSubtitle": "Official weekly technical logs documenting features implemented, architecture decisions, and real-world engineering obstacles resolved.",
     "filterAll": "All Weeks (16)",
-    "filterCompleted": "Completed Logs (Weeks 1–5)",
+    "filterCompleted": "Completed Logs (Weeks 1–6)",
     "filterUpcoming": "Upcoming Roadmap",
     "statusCompleted": "Completed & Verified",
     "statusInProgress": "Current Active Sprint",
@@ -581,23 +581,37 @@
       {
         "id": "week-6",
         "weekNum": 6,
-        "title": "Week 6: Performance Profiling & Query Optimization",
-        "status": "In Progress",
+        "title": "Week 6: Custom Payment Channels, Financial Analytics & Public Marketing Portal",
+        "status": "Completed",
         "date": "07/10/2026 – 13/10/2026",
         "hours": "40 Hours",
-        "cumulativeHours": "240 Cumulative Hours (Projected)",
-        "summary": "Executing database index benchmarks on PostgreSQL with EXPLAIN ANALYZE and tuning high-concurrency API latency.",
+        "cumulativeHours": "240 Cumulative Hours",
+        "summary": "Dynamic school payment channels (KBZPay, WavePay, bank transfers), backend Financial Analytics & Aging Receivables Engine (/finance/analytics), high-converting bilingual marketing landing page, and auth interceptor route hardening.",
         "tasks": [
-          "Benchmarking slow relational queries with EXPLAIN ANALYZE on PostgreSQL async connections.",
-          "Refactoring composite indexes across multi-tenant parent-student lookup tables.",
-          "Load testing asynchronous FastAPI endpoints under concurrent user spikes."
+          "Extended financial configuration schema (PaymentChannelsConfig) to support arbitrary custom payment channels (CustomPaymentChannel) with dynamic mobile wallets (KBZPay, WavePay, AYA Pay) and tenant bank accounts.",
+          "Engineered backend financial analytics service (app/modules/finance/service.py) with Aging Receivables algorithms categorizing delinquent invoices into standard accounting tiers (Current, 1–30d, 31–60d, 61–90d, >90d).",
+          "Rendered visual cash flow charts, monthly payment method distribution, and class tuition collection leaderboards on /dashboard/finance and central overview widgets.",
+          "Architected high-converting, fully bilingual (English/Myanmar) public marketing landing page featuring dynamic hero metrics, 12-module showcase grid, and interactive stakeholder role previews.",
+          "Hardened client-side apiFetch authentication interceptors with explicit public route whitelisting and skipRedirect guards to eliminate 401 redirect loops on public pages.",
+          "Constructed comprehensive financial analytics test suite (tests/test_finance_analytics.py, tests/test_mmk_payments_and_slip_verification.py) with 120/120 tests passing (100% pass rate)."
         ],
         "concepts": [
-          "Database Indexing Optimization & Query Plans",
-          "High-Concurrency Performance Profiling",
-          "Connection Pool Stress Testing"
+          "Financial Accounting Principles & Accounts Receivable (A/R) Aging Schedules",
+          "Database Aggregation & Multi-Tenant Statistical Summaries (SQLAlchemy func.sum(), func.count())",
+          "Single-Page Application (SPA) Route Navigation Guards & Session Hydration",
+          "SEO Optimization, Open Graph Metadata & Lazy-Loaded Component Performance",
+          "Polymorphic JSON Configuration Schemas for Tenant Flexibility"
         ],
-        "problems": []
+        "problems": [
+          {
+            "problem": "Auth Interceptor Forcing Public Landing Page Visitors to /login: The global apiFetch wrapper automatically redirected 401 Unauthorized responses to /login. When anonymous users loaded public landing pages that made optional status or version checks, they were forcefully bounced to /login.",
+            "solution": "Refactored frontend/services/api.ts with explicit public route whitelisting (PUBLIC_ROUTES: ['/', '/login']) and a shouldRedirectToLogin() guard paired with a skipRedirect: true flag on preflight calls."
+          },
+          {
+            "problem": "Performance Bottlenecks in Dynamic Receivables Aging Calculation: Iterating over thousands of invoice records in Python memory to calculate aging brackets caused high API latency (>1.2s) on the financial analytics endpoint.",
+            "solution": "Shifted date difference calculation and delinquency tier categorization directly into SQL query-level aggregates using CASE statements and date arithmetic, slashing response time from >1.2s to under 45ms."
+          }
+        ]
       },
       {
         "id": "week-7",
