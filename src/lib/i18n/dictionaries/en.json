@@ -330,8 +330,8 @@
   },
   "activity": {
     "section": "05 — Professional Activity",
-    "title": "LinkedIn <span class=\"gradient-text\">Updates & Posts</span>",
-    "subtitle": "Real-time engineering progress, internship milestones (ICTCE04), and technical write-ups directly from my professional network.",
+    "title": "Professional <span class=\"gradient-text\">Works & Activities</span>",
+    "subtitle": "Engineering milestones, technical projects, and professional activities shared directly from my official LinkedIn account.",
     "profile": {
       "headline": "Full-Stack Software Engineering Intern @ HTZKKL TECHNOLOGIES COMPANY LIMITED",
       "status": "Open to Opportunities",
@@ -341,7 +341,7 @@
       "location": "Bangkok, Thailand"
     },
     "filterAll": "All Updates",
-    "filterReports": "Internship Reports",
+    "filterReports": "Technical Articles",
     "filterProjects": "Project Highlights",
     "post": {
       "reactions": "Reactions",

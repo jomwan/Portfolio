@@ -189,17 +189,19 @@ export default function LinkedInSection() {
                 </div>
               </div>
 
-              {/* Quick Link to 4-Month Internship Logbook */}
-              <Link
-                href="/internship"
-                className="flex items-center justify-between p-3.5 rounded-2xl bg-primary/10 hover:bg-primary/15 border border-primary/20 transition-all text-xs font-bold text-primary group"
+              {/* Direct Link to Professional Activity on LinkedIn */}
+              <a
+                href={profile.activityUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-[#0a66c2]/10 hover:bg-[#0a66c2]/15 border border-[#0a66c2]/20 transition-all text-xs font-bold text-[#0a66c2] group"
               >
                 <div className="flex items-center gap-2">
-                  <FileText size={15} />
-                  <span>View 4-Month Internship Logbook & Reports</span>
+                  <LinkedInLogo size={15} />
+                  <span>View All Professional Works & Activities</span>
                 </div>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <ExternalLink size={13} className="group-hover:translate-x-0.5 transition-transform" />
+              </a>
             </div>
           </motion.div>
 

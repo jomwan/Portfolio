@@ -330,8 +330,8 @@
   },
   "activity": {
     "section": "05 — กิจกรรมวิชาชีพ",
-    "title": "โพสต์และอัปเดตบน <span class=\"gradient-text\">LinkedIn</span>",
-    "subtitle": "ความคืบหน้าทางวิศวกรรมแบบเรียลไทม์ หมุดหมายการฝึกงาน (ICTCE04) และบทความทางเทคนิคโดยตรงจากเครือข่ายวิชาชีพของผม",
+    "title": "ผลงานและกิจกรรมบน <span class=\"gradient-text\">LinkedIn</span>",
+    "subtitle": "อัปเดตงานวิชาชีพ โปรเจกต์ทางเทคนิค และกิจกรรมการทำงานโดยตรงจากบัญชี LinkedIn ทางการของผม",
     "profile": {
       "headline": "วิศวกรซอฟต์แวร์ฟูลสแตกฝึกงาน @ HTZKKL TECHNOLOGIES COMPANY LIMITED",
       "status": "พร้อมรับโอกาสใหม่ๆ",
@@ -341,7 +341,7 @@
       "location": "กรุงเทพมหานคร, ประเทศไทย"
     },
     "filterAll": "อัปเดตทั้งหมด",
-    "filterReports": "รายงานการฝึกงาน",
+    "filterReports": "บทความทางเทคนิค",
     "filterProjects": "ไฮไลต์โปรเจกต์",
     "post": {
       "reactions": "ความรู้สึก",

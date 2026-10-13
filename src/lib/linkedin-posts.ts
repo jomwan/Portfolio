@@ -87,7 +87,7 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
       reposts: 6,
     },
     postUrl: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7485921309042823168/",
-    projectLink: "/internship",
-    projectLinkLabel: "Explore Internship Logbook & Engineering Reports"
+    projectLink: "https://www.linkedin.com/in/sai-swam-wan-hline-jom-7a72b4406/recent-activity/all/",
+    projectLinkLabel: "View All Professional Works & Updates on LinkedIn"
   }
 ];
